@@ -3,6 +3,7 @@
 import { hamburgerMenu, NavElementDetails } from "@/constants/NavbarDetails";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import LoginRegister from "./LoginRegisterButton";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,16 +49,10 @@ export default function Navbar() {
               {item.text}
             </Link>
           ))}
+          {isOpen && <LoginRegister />}
         </div>
-        <div className={`${isOpen ? "toggleNav btn" : "sm:hidden space-x-4"}`}>
-          <button className="bg-slate-900 z-30 px-4 py-1 text-xl text-purple-200 border-2 border-purple-300 rounded-xl ease-in duration-200 hover:bg-slate-950">
-            Register
-          </button>
-          <button className="bg-slate-900 z-30 px-4 py-1 text-xl text-purple-200 border-2 border-purple-300 rounded-xl ease-in duration-200 hover:bg-slate-950">
-            Login
-          </button>
-        </div>
-
+        <LoginRegister ClassName="sm:hidden" />
+        {/* Hamburger Menu */}
         <div className="hidden sm:block sm:w-auto">
           <button
             className="w-6 h-6"
