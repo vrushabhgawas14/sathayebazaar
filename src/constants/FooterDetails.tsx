@@ -26,6 +26,14 @@ export const ExploreColumn = [
 
 export const ConnectColumn = [
   {
+    text: "Register",
+    url: "/register",
+  },
+  {
+    text: "Login",
+    url: "/login",
+  },
+  {
     text: "Support",
     url: "/support",
   },

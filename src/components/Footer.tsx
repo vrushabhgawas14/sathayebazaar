@@ -3,7 +3,6 @@ import {
   ExploreColumn,
   LearnColumn,
 } from "@/constants/FooterDetails";
-import { PersonalSocials } from "@/constants/SocialsDetails";
 import Link from "next/link";
 
 export default function Footer() {
@@ -72,7 +71,7 @@ export default function Footer() {
         </section>
 
         {/* About Me */}
-        <section className="text-center pt-4 pb-2 w-full space-y-2 text-sm">
+        <section className="text-center pt-4 pb-2 w-full space-y-1 text-sm opacity-95">
           <div>
             © 2024 Developed by{" "}
             <a
@@ -84,19 +83,7 @@ export default function Footer() {
             </a>
             .
           </div>
-          <div className="space-x-4 flex items-center justify-center">
-            {PersonalSocials.map((item, index) => (
-              <a
-                key={index}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline"
-              >
-                {item.text}
-              </a>
-            ))}
-          </div>
+          <div>BScIT, Sathaye College.</div>
         </section>
       </footer>
     </>
