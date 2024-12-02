@@ -6,18 +6,22 @@ interface Props {
   isLogin?: boolean;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   error: string;
+  greenText: string;
 }
 
 export default function LoginRegisterForm({
   isLogin,
   handleSubmit,
   error,
+  greenText,
 }: Props) {
+  const isSuccessfull = error === greenText; // Just for green text color
+
   return (
     <main className="flex items-center justify-center my-10 min-w-screen text-zinc-200">
       <section className="flex flex-col items-center p-4 bg-teal-900 rounded-xl w-96">
         <h1 className="text-3xl font-bold">
-          {isLogin ? "Login" : "Registeration"}
+          {isLogin ? "Login" : "Registration"}
         </h1>
         <div className="py-6 w-[95%] flex flex-col items-center space-y-2">
           <form
@@ -27,7 +31,7 @@ export default function LoginRegisterForm({
             <div className="flex items-center justify-center font-semibold space-x-4">
               <label className="text-xl">Email : </label>
               <input
-                type="email"
+                type="text"
                 required
                 placeholder="Enter Email"
                 className="px-2 py-1 rounded-xl text-teal-900"
@@ -44,7 +48,11 @@ export default function LoginRegisterForm({
             </div>
             <Button type="submit" text={isLogin ? "Login" : "Create Account"} />
             {error && (
-              <p className="text-center text-red-600 bg-gray-200 px-2 py-1 rounded-2xl">
+              <p
+                className={`text-center ${
+                  isSuccessfull ? "text-green-700" : "text-red-600"
+                } bg-gray-200 px-2 py-1 rounded-2xl`}
+              >
                 {error}
               </p>
             )}

@@ -6,6 +6,7 @@ import React, { useState } from "react";
 export default function Login() {
   const [error, setError] = useState("");
   const router = useRouter();
+  const [greenText, setGreenText] = useState("");
 
   const isValidEmail = (email: string) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -19,8 +20,11 @@ export default function Login() {
     const password = (form[1] as HTMLInputElement).value;
 
     if (!isValidEmail(email)) {
-      setError("Email is not Invalid.");
+      setError("Invalid Email.");
       return;
+    } else {
+      setError("verifying...");
+      setGreenText("verifying...");
     }
     try {
       const res = await fetch("api/login", {
@@ -41,13 +45,12 @@ export default function Login() {
       }
 
       if (res.status === 200) {
-        setError("");
-        router.push("/");
+        await setError(data.message);
+        setGreenText(data.message);
+        setTimeout(() => router.push("/"), 1000);
       }
-      console.log(error);
-    } catch (err: unknown | null | undefined) {
+    } catch (err) {
       setError(err + "");
-      console.log(error);
     }
   };
 
@@ -57,6 +60,7 @@ export default function Login() {
         isLogin={true}
         handleSubmit={handleSubmit}
         error={error}
+        greenText={greenText}
       />
     </>
   );

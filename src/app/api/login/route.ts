@@ -10,7 +10,7 @@ export const POST = async (request: Request) => {
   const existingUser = await User.findOne({ email });
   if (!existingUser) {
     return NextResponse.json(
-      { message: "Email is not registered" },
+      { message: "Email is not Registered" },
       { status: 400 }
     );
   }
@@ -22,7 +22,7 @@ export const POST = async (request: Request) => {
 
   try {
     return NextResponse.json(
-      { message: "User Login Successfully" },
+      { message: "User Login Successfully." },
       { status: 200 }
     );
   } catch (err: unknown | null | undefined) {

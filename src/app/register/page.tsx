@@ -6,6 +6,7 @@ import { useState } from "react";
 export default function Register() {
   const [error, setError] = useState("");
   const router = useRouter();
+  const [greenText, setGreenText] = useState("");
 
   const isValidEmail = (email: string) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -19,8 +20,11 @@ export default function Register() {
     const password = (form[1] as HTMLInputElement).value;
 
     if (!isValidEmail(email)) {
-      setError("Email is not Invalid.");
+      setError("Invalid Email.");
       return;
+    } else {
+      setError("verifying...");
+      setGreenText("verifying...");
     }
     try {
       const res = await fetch("api/register", {
@@ -41,18 +45,21 @@ export default function Register() {
       }
 
       if (res.status === 200) {
-        setError("");
-        router.push("/");
+        await setError(data.message);
+        setGreenText(data.message);
+        setTimeout(() => router.push("/"), 1000);
       }
-      console.log(error);
-    } catch (error) {
-      setError("Error, try Again" + error);
-      console.log(error);
+    } catch (err) {
+      setError(err + "");
     }
   };
   return (
     <>
-      <LoginRegisterForm handleSubmit={handleSubmit} error={error} />
+      <LoginRegisterForm
+        handleSubmit={handleSubmit}
+        error={error}
+        greenText={greenText}
+      />
     </>
   );
 }
