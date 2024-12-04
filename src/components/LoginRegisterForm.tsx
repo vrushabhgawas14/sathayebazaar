@@ -55,7 +55,7 @@ export default function LoginRegisterForm({
             <Button type="submit" text={isLogin ? "Login" : "Create Account"} />
             {error && (
               <p
-                className={`text-center bg-gray-200 px-1 py-1 rounded-2xl line-clamp-4 ${
+                className={`text-center bg-gray-200 px-2 py-1 rounded-2xl line-clamp-4 ${
                   isSuccessfull ? "text-green-700" : "text-red-600"
                 }`}
               >

@@ -11,7 +11,7 @@ export const POST = async (request: NextRequest) => {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return NextResponse.json(
-        { message: "Email is Already Registered." },
+        { message: "User is Already Registered." },
         { status: 400 }
       );
     }
