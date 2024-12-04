@@ -29,8 +29,11 @@ export default function LoginRegisterForm({
             className="flex flex-col items-center space-y-4"
           >
             <div className="flex items-center justify-center font-semibold space-x-4">
-              <label className="text-xl">Email : </label>
+              <label htmlFor="userName" className="text-xl cursor-pointer">
+                Email :
+              </label>
               <input
+                id="userName"
                 type="text"
                 required
                 placeholder="Enter Email"
@@ -38,8 +41,11 @@ export default function LoginRegisterForm({
               />
             </div>
             <div className="flex items-center justify-center font-semibold space-x-4">
-              <label className="text-xl">Pass : </label>
+              <label htmlFor="userPassword" className="text-xl cursor-pointer">
+                Pass :
+              </label>
               <input
+                id="userPassword"
                 type="password"
                 required
                 placeholder="Enter Password"
@@ -49,9 +55,9 @@ export default function LoginRegisterForm({
             <Button type="submit" text={isLogin ? "Login" : "Create Account"} />
             {error && (
               <p
-                className={`text-center ${
+                className={`text-center bg-gray-200 px-1 py-1 rounded-2xl line-clamp-4 ${
                   isSuccessfull ? "text-green-700" : "text-red-600"
-                } bg-gray-200 px-2 py-1 rounded-2xl`}
+                }`}
               >
                 {error}
               </p>

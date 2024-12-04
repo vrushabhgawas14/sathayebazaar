@@ -5,8 +5,8 @@ import { useState } from "react";
 
 export default function Register() {
   const [error, setError] = useState("");
-  const router = useRouter();
   const [greenText, setGreenText] = useState("");
+  const router = useRouter();
 
   const isValidEmail = (email: string) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -26,6 +26,7 @@ export default function Register() {
       setError("verifying...");
       setGreenText("verifying...");
     }
+
     try {
       const res = await fetch("api/register", {
         method: "POST",
@@ -40,17 +41,25 @@ export default function Register() {
 
       const data = await res.json();
 
-      if (res.status === 400) {
-        setError(data.message);
-      }
-
-      if (res.status === 200) {
+      if (res.status === 201) {
+        // All Ok, User Registered
         await setError(data.message);
         setGreenText(data.message);
-        setTimeout(() => router.push("/"), 1000);
+        setTimeout(() => router.replace("/profile"), 700);
+      }
+
+      if (res.status === 400) {
+        // User is Already Registered.
+        await setError(data.message);
+      }
+
+      if (res.status === 500) {
+        // Error in Connecting to Database
+        await setError(data.message);
       }
     } catch (err) {
-      setError(err + "");
+      // Something might went wrong with fetching json or else.
+      setError("Error in Fetching Details as JSON  = " + err);
     }
   };
   return (
