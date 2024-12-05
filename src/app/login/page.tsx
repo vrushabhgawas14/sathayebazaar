@@ -15,19 +15,20 @@ export default function Login() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const email = (form[0] as HTMLInputElement).value;
-    const password = (form[1] as HTMLInputElement).value;
-
-    if (!isValidEmail(email)) {
-      setError("Invalid Email.");
-      return;
-    } else {
-      setError("verifying...");
-      setGreenText("verifying...");
-    }
 
     try {
+      const formData = new FormData(e.currentTarget);
+      const email = formData.get("userEmail")?.toString().toLowerCase();
+      const password = formData.get("userPassword");
+
+      if (!isValidEmail(email!)) {
+        setError("Invalid Email.");
+        return;
+      } else {
+        setError("Authenticating...");
+        setGreenText("Authenticating...");
+      }
+
       const res = await fetch("api/login", {
         method: "POST",
         headers: {

@@ -29,11 +29,12 @@ export default function LoginRegisterForm({
             className="flex flex-col items-center space-y-4"
           >
             <div className="flex items-center justify-center font-semibold space-x-4">
-              <label htmlFor="userName" className="text-xl cursor-pointer">
+              <label htmlFor="userEmail" className="text-xl cursor-pointer">
                 Email :
               </label>
               <input
-                id="userName"
+                id="userEmail"
+                name="userEmail"
                 type="text"
                 required
                 placeholder="Enter Email"
@@ -46,6 +47,7 @@ export default function LoginRegisterForm({
               </label>
               <input
                 id="userPassword"
+                name="userPassword"
                 type="password"
                 required
                 placeholder="Enter Password"
