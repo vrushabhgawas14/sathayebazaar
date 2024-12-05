@@ -11,12 +11,8 @@ export const LearnColumn = [
 
 export const ExploreColumn = [
   {
-    text: "Top Buyer",
-    url: "top-buyer",
-  },
-  {
-    text: "LogIn",
-    url: "#footer",
+    text: "Shops",
+    url: "/shops",
   },
   {
     text: "Reviews",
