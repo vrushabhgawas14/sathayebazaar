@@ -4,7 +4,7 @@ interface Props {
   ClassName?: string;
 }
 
-export default function LoginRegister({ ClassName }: Props) {
+export default function LoginRegisterButton({ ClassName }: Props) {
   const buttons = [
     { text: "Register", url: "/register" },
     { text: "Login", url: "/login" },

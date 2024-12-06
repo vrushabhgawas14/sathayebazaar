@@ -1,12 +1,22 @@
 "use client";
 import LoginRegisterForm from "@/components/LoginRegisterForm";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Login() {
   const [error, setError] = useState("");
   const [greenText, setGreenText] = useState("");
   const router = useRouter();
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (session) {
+      router.replace("/profile");
+    }
+  }, [session, router]);
+
+  if (session) return <p className="text-center py-20 text-3xl">Loading...</p>;
 
   const isValidEmail = (email: string) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -29,34 +39,22 @@ export default function Login() {
         setGreenText("Authenticating...");
       }
 
-      const res = await fetch("api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+      const response = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
       });
 
-      const data = await res.json();
+      if (response?.error) {
+        // User doesn't exist! || Error Connecting to DB || Invalid Password
+        await setError(response.error);
+      }
 
-      if (res.status === 201) {
+      if (response?.ok) {
         // All Ok, User Login Done
-        await setError(data.message);
-        setGreenText(data.message);
-        setTimeout(() => router.replace("/profile"), 700);
-      }
-
-      if (res.status === 400) {
-        // User doesn't exist.
-        await setError(data.message);
-      }
-
-      if (res.status === 500) {
-        // Error in Connecting to Database
-        await setError(data.message);
+        await setError("Login Successfull!");
+        setGreenText("Login Successfull!");
+        setTimeout(() => router.replace("/profile"), 500);
       }
     } catch (err) {
       // Something might went wrong with fetching json or else.

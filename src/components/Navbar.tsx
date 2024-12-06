@@ -3,14 +3,18 @@
 import { hamburgerMenu, NavElementDetails } from "@/constants/NavbarDetails";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import LoginRegister from "./LoginRegisterButton";
+import LoginRegisterButton from "./LoginRegisterButton";
+import { useSession } from "next-auth/react";
+import SignOutButton from "./SignOutButton";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [pageScrolling, setPageScrolling] = useState(false);
+  const { data: session } = useSession();
   let hamburger = hamburgerMenu.bar;
 
   hamburger = isOpen ? hamburgerMenu.cross : hamburgerMenu.bar;
+  const isLoggedIn = session ? true : false;
 
   const trackScroll = () => {
     setPageScrolling(window.scrollY >= 100 ? true : false);
@@ -34,7 +38,6 @@ export default function Navbar() {
           <div className="text-center font-bold text-4xl border-y-Border-slate border-y-2 border-x-0 rounded-tr-3xl rounded-bl-3xl pt-2 px-4 sm:text-3xl sm:w-auto">
             <Link href="/">Jugaadu</Link>
           </div>
-
           <div
             className={`flex items-center justify-evenly py-2 ${
               isOpen ? "toggleNav" : "sm:hidden"
@@ -50,9 +53,22 @@ export default function Navbar() {
                 {item.text}
               </Link>
             ))}
-            {isOpen && <LoginRegister />}
+
+            {/* For Mobile Devices Only */}
+            {isLoggedIn && isOpen ? (
+              <SignOutButton ClassName="lg:hidden" />
+            ) : (
+              <LoginRegisterButton ClassName="lg:hidden" />
+            )}
           </div>
-          <LoginRegister ClassName="sm:hidden" />
+
+          {/* For Large Devices Only */}
+          {isLoggedIn ? (
+            <SignOutButton ClassName="sm:hidden" />
+          ) : (
+            <LoginRegisterButton ClassName="sm:hidden" />
+          )}
+
           {/* Hamburger Menu */}
           <div className="hidden sm:block sm:w-auto">
             <button
