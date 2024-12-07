@@ -17,7 +17,7 @@ export default function Footer() {
           {/* Left Side */}
           <div className="p-4 space-y-4 text-center">
             <Link href="/" className="text-4xl sm:text-3xl">
-              Jugaadu
+              Athawda Bazaar
             </Link>
             <div className="flex items-center space-x-4 justify-center">
               Social Media

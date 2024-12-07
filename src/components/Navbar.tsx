@@ -3,9 +3,8 @@
 import { hamburgerMenu, NavElementDetails } from "@/constants/NavbarDetails";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import LoginRegisterButton from "./LoginRegisterButton";
-import { useSession } from "next-auth/react";
-import SignOutButton from "./SignOutButton";
+import { signOut, useSession } from "next-auth/react";
+import Button from "./Button";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,49 +27,54 @@ export default function Navbar() {
     <>
       <div className="relative h-28">
         <nav
-          className={`flex items-center justify-around fixed top-0 w-full text-lg sm:text-2xl font-semibold py-6 z-10 text-white md:px-8 sm:p-6 sm:justify-between
+          className={`flex items-center lg:justify-around fixed top-0 w-full text-lg sm:text-2xl font-semibold py-6 z-10 text-white md:px-4 sm:p-6 justify-between
           ${
             pageScrolling
               ? "bg-slate-900 ease-in duration-500"
               : "ease-out duration-500"
           }`}
         >
-          <div className="text-center font-bold text-4xl border-y-Border-slate border-y-2 border-x-0 rounded-tr-3xl rounded-bl-3xl pt-2 px-4 sm:text-3xl sm:w-auto">
-            <Link href="/">Jugaadu</Link>
+          <div className="text-center font-bold text-4xl border-y-Border-slate border-y-2 border-x-0 rounded-tr-3xl rounded-bl-3xl pt-2 px-4 lg:mx-4 sm:text-3xl sm:w-auto lg:w-[30%]">
+            <Link href="/">Athawda Bazaar</Link>
           </div>
           <div
-            className={`flex items-center justify-evenly py-2 ${
-              isOpen ? "toggleNav" : "sm:hidden"
+            className={`flex items-center py-2 lg:justify-evenly lg:w-[70%] ${
+              isOpen ? "toggleNav" : "sm:hidden md:hidden"
             }`}
+            onClick={() => setIsOpen(false)}
           >
-            {NavElementDetails.map((item, index) => (
-              <Link
-                key={index}
-                href={item.url}
-                onClick={() => setIsOpen(false)}
-                className="mx-10 md:mx-3 border-2 border-transparent hover:border-b-Border-slate sm:border-none"
-              >
-                {item.text}
-              </Link>
-            ))}
-
-            {/* For Mobile Devices Only */}
-            {isLoggedIn && isOpen ? (
-              <SignOutButton ClassName="lg:hidden" />
-            ) : (
-              <LoginRegisterButton ClassName="lg:hidden" />
-            )}
+            <div
+              className={`${
+                isOpen && "flex flex-col items-center space-y-4 pb-2"
+              } lg:space-x-10`}
+            >
+              {NavElementDetails.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.url}
+                  className="border-2 border-transparent hover:border-b-Border-slate sm:border-none"
+                >
+                  {item.text}
+                </Link>
+              ))}
+            </div>
+            <div>
+              {isLoggedIn ? (
+                <div className="flex lg:space-x-4 md:flex-col md:space-y-4 sm:flex-col sm:space-y-4">
+                  <Button text="Profile" url="/profile" />
+                  <Button text="LogOut" url="/" onClick={signOut} />
+                </div>
+              ) : (
+                <div className="space-x-4">
+                  <Button text="Login" url="/login" />
+                  <Button text="Register" url="/register" />
+                </div>
+              )}
+            </div>
           </div>
 
-          {/* For Large Devices Only */}
-          {isLoggedIn ? (
-            <SignOutButton ClassName="sm:hidden" />
-          ) : (
-            <LoginRegisterButton ClassName="sm:hidden" />
-          )}
-
           {/* Hamburger Menu */}
-          <div className="hidden sm:block sm:w-auto">
+          <div className="lg:hidden sm:w-auto">
             <button
               className="w-6 h-6"
               onClick={() => setIsOpen(!isOpen)}

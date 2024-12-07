@@ -1,20 +1,21 @@
+import Link from "next/link";
+
 interface Props {
-  type?: "submit";
-  invert?: boolean;
+  onClick?: () => void;
   text: string;
+  url: string;
 }
 
-export const Button = ({ type, invert, text }: Props) => {
+export default function Button({ onClick, text, url }: Props) {
   return (
-    <button
-      type={type}
-      className={`font-semibold text-xl px-2 py-1 ${
-        invert
-          ? "bg-purple-800 text-zinc-200 hover:bg-purple-700 hover:text-zinc-100"
-          : "bg-zinc-200 text-purple-800 hover:bg-zinc-100 hover:text-purple-900"
-      } rounded-xl text-center`}
-    >
-      {text}
-    </button>
+    <>
+      <Link
+        href={url}
+        onClick={onClick}
+        className="bg-slate-900 px-4 py-1 text-xl text-purple-200 border-2 border-purple-300 rounded-xl ease-in duration-200 hover:bg-slate-950"
+      >
+        {text}
+      </Link>
+    </>
   );
-};
+}
