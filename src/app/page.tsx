@@ -1,20 +1,30 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <>
-      <div className="text-center py-10">Welcome to Jugaadu, Unknown.</div>
-      <div className="mx-32 sm:mx-10 leading-10">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta culpa
-        qui eum totam nobis quibusdam voluptates quia numquam modi quidem
-        aperiam neque harum atque fuga aliquid ullam porro dicta, voluptatibus
-        sit laudantium natus. Totam numquam incidunt doloremque ut tempore a
-        quod, consectetur nemo deserunt quasi perspiciatis. Quidem molestias,
-        perspiciatis culpa corrupti earum tempore omnis aperiam nemo laudantium.
-        Laboriosam enim iure voluptatum aut, nemo quos facilis. Voluptate quos
-        nisi quisquam vitae pariatur eos autem eius. Corporis eligendi
-        laboriosam accusantium nemo ea ex, nihil laborum ad iusto quis tempora
-        distinctio fugit autem! Voluptates vero nobis nostrum harum consequatur
-        possimus. Distinctio, nemo et.
-      </div>
+      <main>
+        {/* Welcome Message */}
+        <section className="flex flex-col items-center space-y-10 w-full py-28">
+          <div className="text-3xl sm:text-3xl sm:px-10 text-center">
+            Welcome to Athawda Bazaar!
+          </div>
+          <div className="text-3xl sm:text-2xl sm:px-10 text-center opacity-90 tracking-wide">
+            Discover. Rate. Shop - all in one Bazaar!
+          </div>
+          {/* <div className="flex flex-col text-center italic text-2xl opacity-60 tracking-wide">
+            <span>Stalk all shops and their products </span>
+            <span> as you stalk your crush.</span>
+          </div> */}
+          <Link
+            href="/shops"
+            aria-label="About Us"
+            className="px-6 py-4 text-xl leading-tight tracking-widest normalButton text-gray-300 hover:text-gray-100 rounded-lg"
+          >
+            Explore Shops
+          </Link>
+        </section>
+      </main>
     </>
   );
 }

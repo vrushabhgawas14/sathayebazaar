@@ -10,7 +10,7 @@ export default function Footer() {
     <>
       <footer
         id="footer"
-        className="flex flex-col bg-slate-900 text-white sm:pt-12"
+        className="flex flex-col bgGradientLarge sm:bg-gradient-left  text-white sm:pt-12"
       >
         {/* Actual Footer */}
         <section className="flex justify-between m-10 sm:flex-col ">

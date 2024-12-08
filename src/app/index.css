@@ -33,9 +33,9 @@ html::-webkit-scrollbar {
   @apply space-y-4 items-center mt-12 p-4 w-full bg-slate-950 bg-opacity-80;
 }
 
-/* .bgGradientSmall {
-  background: linear-gradient(to left, #570030, #2b002b);
-} */
+.normalButton {
+  background: linear-gradient(to bottom, #570030, #2b002b);
+}
 
 .bgGradientLarge {
   background: linear-gradient(to left, #5c0023, #4b002c, #2b002b);

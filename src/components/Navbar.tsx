@@ -2,38 +2,22 @@
 
 import { hamburgerMenu, NavElementDetails } from "@/constants/NavbarDetails";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import Button from "./Button";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [pageScrolling, setPageScrolling] = useState(false);
   const { data: session } = useSession();
   let hamburger = hamburgerMenu.bar;
 
   hamburger = isOpen ? hamburgerMenu.cross : hamburgerMenu.bar;
   const isLoggedIn = session ? true : false;
 
-  const trackScroll = () => {
-    setPageScrolling(window.scrollY >= 100 ? true : false);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", trackScroll);
-  }, []);
-
   return (
     <>
       <div className="relative h-28">
-        <nav
-          className={`flex items-center lg:justify-around fixed top-0 w-full text-lg sm:text-2xl font-semibold py-6 z-10 text-white md:px-4 sm:p-6 justify-between
-          ${
-            pageScrolling
-              ? "bg-slate-900 ease-in duration-500"
-              : "ease-out duration-500"
-          }`}
-        >
+        <nav className="flex items-center lg:justify-around fixed top-0 w-full text-lg sm:text-2xl font-semibold py-6 z-10 text-white md:px-4 sm:p-6 justify-between bgGradientLarge sm:bg-gradient-left">
           <div className="text-center font-bold text-4xl border-y-Border-slate border-y-2 border-x-0 rounded-tr-3xl rounded-bl-3xl pt-2 px-4 lg:mx-4 sm:text-3xl sm:w-auto lg:w-[30%]">
             <Link href="/">Athawda Bazaar</Link>
           </div>

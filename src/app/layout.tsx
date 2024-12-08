@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth";
 import RootLayoutClient from "@/lib/RootLayoutClient";
 
 export const metadata: Metadata = {
-  title: "Jugaadu",
+  title: "Athawada Bazaar",
   description: "Experimental Project",
 };
 
@@ -18,7 +18,7 @@ export default async function RootLayout({
   const session = await getServerSession();
   return (
     <html lang="en">
-      <body className="bg-teal-950 text-white">
+      <body className="bg-red-200 bg-opacity-70 text-slate-900">
         <RootLayoutClient session={session}>
           <Navbar />
           {children}

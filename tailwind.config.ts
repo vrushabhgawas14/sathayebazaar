@@ -15,6 +15,9 @@ export default {
           slate: "#ffffff", // White
         },
       },
+      backgroundImage: {
+        "gradient-left": "linear-gradient(to left, #570030, #2b002b)",
+      },
       screens: {
         sm: { max: "900px" },
         md: { min: "901px", max: "1024px" },

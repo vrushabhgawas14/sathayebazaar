@@ -8,7 +8,7 @@ export default function NotFound() {
 
   return (
     <>
-      <main className="flex items-center justify-center h-[60vh] bg-teal-950 text-white">
+      <main className="flex items-center justify-center h-[60vh]">
         <section className="space-y-4 py-2 px-8">
           <h2 className="text-4xl sm:text-3xl font-bold">Oops!</h2>
           <h2 className="text-2xl sm:text-xl">
