@@ -30,7 +30,7 @@ html::-webkit-scrollbar {
 
 .toggleNav {
   @apply flex flex-col absolute top-1/2 left-1/2 -translate-x-1/2;
-  @apply space-y-4 items-center mt-12 p-4 w-full bg-slate-950 bg-opacity-80;
+  @apply space-y-4 items-center mt-11 p-4 w-full bg-slate-950 bg-opacity-80;
 }
 
 .normalButton {
@@ -39,4 +39,8 @@ html::-webkit-scrollbar {
 
 .bgGradientLarge {
   background: linear-gradient(to left, #5c0023, #4b002c, #2b002b);
+}
+
+.gradientShop {
+  background: linear-gradient(to bottom, #27272756, #18000e);
 }

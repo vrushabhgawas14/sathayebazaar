@@ -9,10 +9,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        // For borders
-        Border: {
-          // slate: "#0f172a", // Slate-900
-          slate: "#ffffff", // White
+        background: {
+          start: "#2b002b",
+          mid: "#4b002c",
+          end: "#5c0023",
         },
       },
       backgroundImage: {

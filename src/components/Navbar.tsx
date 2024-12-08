@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <>
       <div className="relative h-28">
-        <nav className="flex items-center lg:justify-around fixed top-0 w-full text-lg sm:text-2xl font-semibold py-6 z-10 text-white md:px-4 sm:p-6 justify-between bgGradientLarge sm:bg-gradient-left">
+        <nav className="flex items-center lg:justify-around justify-between fixed top-0 w-full font-semibold z-10 text-white bgGradientLarge sm:bg-gradient-left text-lg sm:text-2xl py-6 md:px-4 sm:p-6">
           <div className="text-center font-bold text-4xl border-y-Border-slate border-y-2 border-x-0 rounded-tr-3xl rounded-bl-3xl pt-2 px-4 lg:mx-4 sm:text-3xl sm:w-auto lg:w-[30%]">
             <Link href="/">Athawda Bazaar</Link>
           </div>
@@ -36,7 +36,7 @@ export default function Navbar() {
                 <Link
                   key={index}
                   href={item.url}
-                  className="border-2 border-transparent hover:border-b-Border-slate sm:border-none"
+                  className="border-2 border-transparent hover:border-b-gray-200 sm:border-none"
                 >
                   {item.text}
                 </Link>
@@ -49,7 +49,7 @@ export default function Navbar() {
                   <Button text="LogOut" url="/" onClick={signOut} />
                 </div>
               ) : (
-                <div className="space-x-4">
+                <div className="flex space-x-4">
                   <Button text="Login" url="/login" />
                   <Button text="Register" url="/register" />
                 </div>

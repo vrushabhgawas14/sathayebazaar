@@ -14,7 +14,7 @@ export default function Profile() {
   }, [session, router]);
 
   if (!session)
-    return <p className="text-center py-20 text-5xl">Please Login!</p>;
+    return <p className="text-center py-20 text-3xl">Loading...!</p>;
 
   return (
     <>

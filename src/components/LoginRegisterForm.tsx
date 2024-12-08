@@ -19,7 +19,7 @@ export default function LoginRegisterForm({
 
   return (
     <main className="flex items-center justify-center my-10 px-10 min-w-screen text-zinc-200">
-      <section className="flex flex-col items-center p-4 bg-teal-900 rounded-xl w-96">
+      <section className="flex flex-col items-center p-4 bg-background-mid rounded-xl w-96">
         <h1 className="text-3xl font-bold">
           {isLogin ? "Login" : "Registration"}
         </h1>
