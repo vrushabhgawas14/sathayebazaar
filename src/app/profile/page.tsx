@@ -19,7 +19,7 @@ export default function Profile() {
   return (
     <>
       <main className="text-center py-20">
-        <div className="py-2 text-3xl">Hello {session.user?.email}</div>
+        <div className="py-2 text-3xl">Hello {session.user?.name}</div>
       </main>
     </>
   );

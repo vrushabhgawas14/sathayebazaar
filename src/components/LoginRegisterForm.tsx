@@ -1,5 +1,6 @@
 "use client";
 import { FormButton } from "@/components/FormButton";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 
 interface Props {
@@ -71,7 +72,7 @@ export default function LoginRegisterForm({
           <p className="font-bold">Or</p>
           <FormButton
             text="Continue With Google"
-            // click={firebaseContext.signInUserWithGoogle}
+            onClick={() => signIn("google")}
           />
           <div>
             {isLogin ? (
