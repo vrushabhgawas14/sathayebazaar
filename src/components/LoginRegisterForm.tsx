@@ -12,11 +12,11 @@ interface Props {
 
 export default function LoginRegisterForm({
   isLogin,
-  handleSubmit,
-  error,
-  greenText,
-}: Props) {
-  const isSuccessfull = error === greenText; // Just for green text color
+}: // handleSubmit,
+// error,
+// greenText,
+Props) {
+  // const isSuccessfull = error === greenText; // Just for green text color
 
   return (
     <main className="flex items-center justify-center my-10 px-10 min-w-screen text-zinc-200">
@@ -25,7 +25,7 @@ export default function LoginRegisterForm({
           {isLogin ? "Login" : "Registration"}
         </h1>
         <div className="py-6 w-[95%] flex flex-col items-center space-y-2">
-          <form
+          {/* <form
             onSubmit={handleSubmit}
             className="flex flex-col items-center space-y-4"
           >
@@ -69,9 +69,9 @@ export default function LoginRegisterForm({
               </p>
             )}
           </form>
-          <p className="font-bold">Or</p>
+          <p className="font-bold">Or</p> */}
           <FormButton
-            text="Continue With Google"
+            text={`${isLogin ? "SignIn" : "SignUp"} With Google`}
             onClick={() => signIn("google")}
           />
           <div>

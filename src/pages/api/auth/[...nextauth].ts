@@ -52,5 +52,21 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
+  callbacks: {
+    async signIn({ user }) {
+      await connectToDatabase();
+
+      const existingUser = await User.findOne({ email: user.email });
+
+      if (!existingUser) {
+        await User.create({
+          name: user.name,
+          email: user.email,
+          image: user.image,
+        });
+      }
+      return true;
+    },
+  },
   secret: process.env.NEXTAUTH_SECRET,
 });
