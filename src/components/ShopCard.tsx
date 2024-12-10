@@ -18,7 +18,7 @@ export default function ShopCard({
 }: CardDetails) {
   return (
     <>
-      <div className="pt-2 pb-6 px-2 m-4 bg-background-mid rounded-xl text-white">
+      <div className="gradientShopComponent my-14 sm:my-10 pt-2 pb-6 px-2 m-4 rounded-xl text-white">
         <div className="relative h-[60vh] md:h-[40vh] sm:h-[30vh]">
           <Image
             src={image}
@@ -30,7 +30,7 @@ export default function ShopCard({
             alt={title}
             className="h-full rounded-lg object-cover lg:w-[60vw] w-[80vw]"
           />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-5xl sm:text-2xl w-full text-center pt-3 sm:pt-1 gradientShop bg-opacity-50">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-5xl sm:text-2xl w-full text-center pt-3 sm:pt-1 gradientShopButton bg-opacity-50">
             {title}
           </div>
         </div>
