@@ -71,7 +71,7 @@ Props) {
           </form>
           <p className="font-bold">Or</p> */}
           <FormButton
-            text={`${isLogin ? "Sign in" : "Sign up"} with Google`}
+            text={`${isLogin ? "Sign in" : "Continue"} with Google`}
             onClick={() => signIn("google")}
           />
           <div>

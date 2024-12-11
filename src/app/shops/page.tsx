@@ -3,24 +3,29 @@ import { Shops } from "@/models/Shop";
 // import { InsertShopDetails } from "@/constants/InsertShopDetails";
 import ShopCard from "@/components/ShopCard";
 
+export const metadata = {
+  title: "Shops",
+};
+
 export default async function Shop() {
   await connectToDatabase();
 
   // Inserting / Creating Shop Details
-  //   InsertShopDetails.map(async (item) => {
-  //     const isShopPresent = await Shops.findOne({ slug: item.slug });
-  //     if (!isShopPresent) {
-  //       const newShop = new Shops({
-  //         name: item.name,
-  //         category: item.category,
-  //         slug: item.slug,
-  //         imageURL: item.imageURL,
-  //         rating: item.rating,
-  //       });
+  // InsertShopDetails.map(async (item) => {
+  //   const isShopPresent = await Shops.findOne({ slug: item.slug });
+  //   if (!isShopPresent) {
+  //     const newShop = new Shops({
+  //       name: item.name,
+  //       category: item.category,
+  //       slug: item.slug,
+  //       imageURL: item.imageURL,
+  //       rating: item.rating,
+  //       products: item.products,
+  //     });
 
-  //       await newShop.save();
-  //     }
-  //   });
+  //     await newShop.save();
+  //   }
+  // });
 
   // Deleting Shop Details
   //   await Shops.deleteMany({ slug: "shop4" });
