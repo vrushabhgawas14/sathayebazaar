@@ -71,7 +71,7 @@ Props) {
           </form>
           <p className="font-bold">Or</p> */}
           <FormButton
-            text={`${isLogin ? "SignIn" : "SignUp"} With Google`}
+            text={`${isLogin ? "Sign in" : "Sign up"} with Google`}
             onClick={() => signIn("google")}
           />
           <div>
@@ -92,9 +92,9 @@ Props) {
             )}
           </div>
         </div>
-        <div className="text-center underline">
+        {/* <div className="text-center underline">
           <Link href="/">Back To Home</Link>
-        </div>
+        </div> */}
       </section>
     </main>
   );

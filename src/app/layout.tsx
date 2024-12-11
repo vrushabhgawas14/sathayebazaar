@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth";
 import RootLayoutClient from "@/lib/RootLayoutClient";
 
 export const metadata: Metadata = {
-  title: "Athawada Bazaar",
+  title: "Athawda Bazaar",
   description: "Experimental Project",
 };
 

@@ -19,7 +19,7 @@ export default function ShopCard({
   return (
     <>
       <div className="gradientShopComponent my-14 sm:my-10 pt-2 pb-6 px-2 m-4 rounded-xl text-white">
-        <div className="relative h-[60vh] md:h-[40vh] sm:h-[30vh]">
+        <div className="relative h-[50vh] md:h-[40vh] sm:h-[30vh]">
           <Image
             src={image}
             width="0"

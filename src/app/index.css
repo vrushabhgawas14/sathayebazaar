@@ -30,7 +30,7 @@ html::-webkit-scrollbar {
 
 .toggleNav {
   @apply flex flex-col absolute top-1/2 left-1/2 -translate-x-1/2;
-  @apply space-y-4 items-center mt-11 p-4 w-full bg-slate-950 bg-opacity-80;
+  @apply space-y-4 items-center mt-11 p-4 w-full bg-background-start bg-opacity-95;
 }
 
 .normalButton {
