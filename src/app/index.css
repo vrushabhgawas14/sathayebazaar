@@ -46,5 +46,5 @@ html::-webkit-scrollbar {
 }
 
 .gradientShopButton {
-  background: linear-gradient(to bottom, #27272756, #18000e);
+  background: linear-gradient(to bottom, #27272731, #18000e8c, #18000e);
 }

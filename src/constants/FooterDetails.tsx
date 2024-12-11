@@ -11,7 +11,7 @@ export const LearnColumn = [
 
 export const ExploreColumn = [
   {
-    text: "Shops",
+    text: "Top Rated Shops",
     url: "/shops",
   },
   {

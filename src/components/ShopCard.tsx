@@ -6,7 +6,7 @@ type CardDetails = {
   title: string;
   category: string;
   url: string;
-  rating: number;
+  rating?: number;
 };
 
 export default function ShopCard({
@@ -38,10 +38,10 @@ export default function ShopCard({
           <div className="text-center py-2 text-xl sm:text-lg">
             Category : {category}
           </div>
-          <div className="text-center py-2">Rating: {rating}/10</div>
+          <div className="text-center font-bold py-2">Rating: {rating}/10</div>
         </div>
         <div className="text-center pt-4">
-          <Button text="View Details" url={url} small={true} />
+          <Button text="View Details" url={`shops/${url}`} small={true} />
         </div>
       </div>
     </>

@@ -4,8 +4,8 @@ export const NavElementDetails = [
     url: "/about",
   },
   {
-    text: "Most Rated",
-    url: "/most-rated",
+    text: "Top Rated Shops",
+    url: "/shops",
   },
   {
     text: "Reviews",
