@@ -19,13 +19,26 @@ export default function Footer() {
             <Link href="/" className="text-4xl sm:text-3xl">
               Athawda Bazaar
             </Link>
-            <div className="flex items-center space-x-4 justify-center">
-              Social Media
+            <div className="flex flex-col items-center pt-4 space-y-4 justify-center">
+              <div>
+                <p>Parle Tilak Vidyalaya Association&apos;s</p>
+                <Link
+                  href={"https://www.sathayecollege.edu.in"}
+                  className="text-xl font-bold"
+                >
+                  Sathaye College (Autonomous)
+                </Link>
+              </div>
+              <p className="w-72">
+                Dixit Road, Vile Parle (E), Mumbai 400057, Maharashtra, India.
+              </p>
             </div>
-            <div className="flex flex-col underline p-4">
-              <button>Terms & Conditons</button>
+            {/* <div className="flex flex-col underline p-4">
+              <Link href={"/about"} target="_blank">
+                Terms & Conditons
+              </Link>
               <button>Privacy Policy</button>
-            </div>
+            </div> */}
           </div>
           {/* Right Side */}
           <div className="flex sm:flex-wrap items-start justify-evenly sm:justify-between lg:w-[60%] md:w-[50%] sm:mt-10">

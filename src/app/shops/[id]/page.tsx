@@ -6,11 +6,21 @@ import Image from "next/image";
 
 // eslint-disable-next-line
 export default async function ShopProfile({ params }: any) {
-  await connectToDatabase();
   const slugParam = await params;
   const slugURL = slugParam.id;
 
-  const ShopDetails = await Shops.findOne({ slug: slugURL });
+  let ShopDetails;
+  try {
+    await connectToDatabase();
+    const ShopDetailsTemp = await Shops.findOne({ slug: slugURL });
+    ShopDetails = ShopDetailsTemp;
+  } catch {
+    return (
+      <div className="flex justify-center py-20 text-2xl px-10 text-center">
+        Check your internet connection and try again!
+      </div>
+    );
+  }
 
   if (!ShopDetails) {
     return <div className="text-center text-3xl py-20">Shop not found.</div>;
@@ -26,13 +36,15 @@ export default async function ShopProfile({ params }: any) {
             alt="Shop Banner"
             className="h-[50vh] w-[50vw] md:h-[40vh] md:w-[80vw] sm:h-[30vh] sm:w-[80vw] border-2 border-background-start rounded-xl"
           />
-          <div className="text-5xl sm:text-3xl p-4 sm:px-10 text-center">
+          <div className="text-5xl sm:text-3xl font-bold p-4 sm:px-10 text-center">
             {ShopDetails.name}
           </div>
           <div className="text-2xl sm:text-xl sm:px-10 space-y-5">
-            <p>{ShopDetails.category}</p>
+            <p className="normalButton text-white px-4 py-1 rounded-lg">
+              {ShopDetails.category}
+            </p>
             <p className="text-3xl sm:text-2xl">
-              Rating: {ShopDetails.rating} / 10
+              Rating : {ShopDetails.rating} / 10
             </p>
           </div>
         </section>

@@ -7,10 +7,10 @@ export const NavElementDetails = [
     text: "Top Rated Shops",
     url: "/shops",
   },
-  {
-    text: "Reviews",
-    url: "/reviews",
-  },
+  // {
+  //   text: "Reviews",
+  //   url: "/reviews",
+  // },
   {
     text: "Support",
     url: "/support",

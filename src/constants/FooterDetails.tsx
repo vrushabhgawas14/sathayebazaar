@@ -3,10 +3,10 @@ export const LearnColumn = [
     text: "About",
     url: "/about",
   },
-  {
-    text: "FAQ",
-    url: "/faq",
-  },
+  // {
+  //   text: "FAQ",
+  //   url: "/faq",
+  // },
 ];
 
 export const ExploreColumn = [
@@ -14,10 +14,10 @@ export const ExploreColumn = [
     text: "Top Rated Shops",
     url: "/shops",
   },
-  {
-    text: "Reviews",
-    url: "/reviews",
-  },
+  // {
+  //   text: "Reviews",
+  //   url: "/reviews",
+  // },
 ];
 
 export const ConnectColumn = [

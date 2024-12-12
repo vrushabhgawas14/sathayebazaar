@@ -30,7 +30,7 @@ export default function ShopCard({
             alt={title}
             className="h-full rounded-lg object-cover lg:w-[60vw] w-[80vw]"
           />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-5xl sm:text-2xl w-full text-center pt-3 sm:pt-1 gradientShopButton bg-opacity-50">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-5xl sm:text-2xl w-full text-center pt-3 sm:pt-1 gradientShopComponentEffect bg-opacity-50">
             {title}
           </div>
         </div>
@@ -40,6 +40,7 @@ export default function ShopCard({
           </div>
           <div className="text-center font-bold py-2">Rating: {rating}/10</div>
         </div>
+        <div className="px-4">Duration: 14 - 17 Nov</div>
         <div className="text-center pt-4">
           <Button text="View Details" url={`shops/${url}`} small={true} />
         </div>
