@@ -10,17 +10,32 @@ export default async function Home() {
       <path d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path>
     </svg>
   );
+  const today = new Date();
+  const todaysDate = today.getDate();
+
   let ShopsDetails;
+  let PastShopsDetails;
   try {
     await connectToDatabase();
-    const ShopsDetailsTemp = await Shops.find();
+    const ShopsDetailsTemp = await Shops.find({
+      endDate: { $gte: todaysDate },
+    });
     ShopsDetails = ShopsDetailsTemp;
+
+    PastShopsDetails = await Shops.find({
+      endDate: { $lt: todaysDate },
+    });
   } catch {
     return (
       <div className="flex justify-center py-20 text-2xl px-10 text-center">
         Check your internet connection and try again!
       </div>
     );
+  }
+
+  let isPastShop = false;
+  if (PastShopsDetails.length >= 1) {
+    isPastShop = true;
   }
 
   return (
@@ -65,6 +80,8 @@ export default async function Home() {
                   slug: string;
                   imageURL: string;
                   rating: number;
+                  startDate: number;
+                  endDate: number;
                 },
                 index
               ) => (
@@ -75,12 +92,53 @@ export default async function Home() {
                   image={item.imageURL}
                   url={item.slug}
                   rating={item.rating}
+                  startDate={item.startDate}
+                  endDate={item.endDate}
                 />
               )
             )}
           </div>
         </section>
         <Line />
+
+        {/* Past Shops */}
+        {isPastShop && (
+          <>
+            <section className="flex flex-col items-center space-y-8 w-full py-24">
+              <div className="text-5xl text-center w-[50%] md:w-[70%] sm:w-[95%] sm:text-3xl sm:px-10">
+                Past Shops
+              </div>
+              <div>
+                {(await PastShopsDetails).map(
+                  (
+                    item: {
+                      name: string;
+                      category: string;
+                      slug: string;
+                      imageURL: string;
+                      rating: number;
+                      startDate: number;
+                      endDate: number;
+                    },
+                    index
+                  ) => (
+                    <ShopCard
+                      key={index}
+                      title={item.name}
+                      category={item.category}
+                      image={item.imageURL}
+                      url={item.slug}
+                      rating={item.rating}
+                      startDate={item.startDate}
+                      endDate={item.endDate}
+                    />
+                  )
+                )}
+              </div>
+            </section>
+            <Line />
+          </>
+        )}
         {/* What is Athawda Bazaar */}
         <section className="flex flex-col items-center space-y-8 w-full py-24">
           <div className="text-4xl text-center w-[50%] md:w-[70%] sm:w-full sm:text-3xl sm:px-10">

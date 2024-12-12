@@ -1,7 +1,7 @@
 import { connectToDatabase } from "@/lib/mongoDB";
 import { Shops } from "@/models/Shop";
-// import { InsertShopDetails } from "@/constants/InsertShopDetails";
 import ShopCard from "@/components/ShopCard";
+// import { InsertShopDetails } from "@/constants/InsertShopDetails";
 
 export const metadata = {
   title: "Shops",
@@ -23,6 +23,8 @@ export default async function Shop() {
     //       imageURL: item.imageURL,
     //       rating: item.rating,
     //       products: item.products,
+    //       startDate: item.startDate,
+    //       endDate: item.endDate,
     //     });
 
     //     await newShop.save();
@@ -33,7 +35,12 @@ export default async function Shop() {
     //   await Shops.deleteMany({ slug: "shop4" });
     //   await Shops.deleteOne({ slug: "shop4" });
 
-    const ShopsDetailsTemp = await Shops.find().sort({ rating: -1 });
+    const today = new Date();
+    const todaysDate = today.getDate();
+
+    const ShopsDetailsTemp = await Shops.find({
+      endDate: { $gte: todaysDate },
+    }).sort({ rating: -1 });
     ShopsDetails = ShopsDetailsTemp;
   } catch {
     return (
@@ -60,6 +67,8 @@ export default async function Shop() {
                   slug: string;
                   imageURL: string;
                   rating: number;
+                  startDate: number;
+                  endDate: number;
                 },
                 index
               ) => (
@@ -70,6 +79,8 @@ export default async function Shop() {
                   image={item.imageURL}
                   url={item.slug}
                   rating={item.rating}
+                  startDate={item.startDate}
+                  endDate={item.endDate}
                 />
               )
             )}

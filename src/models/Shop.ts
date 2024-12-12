@@ -13,6 +13,8 @@ const shopSchema = new Schema({
   ],
   imageURL: { type: String, required: true },
   slug: { type: String, required: true, unique: true },
+  startDate: { type: Number, required: true },
+  endDate: { type: Number, required: true },
 });
 
 export const Shops =

@@ -7,6 +7,8 @@ type CardDetails = {
   category: string;
   url: string;
   rating?: number;
+  startDate: number;
+  endDate: number;
 };
 
 export default function ShopCard({
@@ -15,6 +17,8 @@ export default function ShopCard({
   category,
   url,
   rating,
+  startDate,
+  endDate,
 }: CardDetails) {
   return (
     <>
@@ -40,7 +44,14 @@ export default function ShopCard({
           </div>
           <div className="text-center font-bold py-2">Rating: {rating}/10</div>
         </div>
-        <div className="px-4">Duration: 14 - 17 Nov</div>
+        <div className="px-4">
+          <span>Duration: </span>
+          <span className="italic">
+            {startDate}
+            <sup> th</sup> to {endDate}
+            <sup> th</sup> Dec 2024
+          </span>
+        </div>
         <div className="text-center pt-4">
           <Button text="View Details" url={`shops/${url}`} small={true} />
         </div>

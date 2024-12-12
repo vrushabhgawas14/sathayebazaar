@@ -40,9 +40,16 @@ export default async function ShopProfile({ params }: any) {
             {ShopDetails.name}
           </div>
           <div className="text-2xl sm:text-xl sm:px-10 space-y-5">
-            <p className="normalButton text-white px-4 py-1 rounded-lg">
-              {ShopDetails.category}
-            </p>
+            <div>
+              <p className="normalButton text-white px-4 py-1 rounded-lg">
+                {ShopDetails.category}
+              </p>
+              <p className="text-lg py-2">
+                {ShopDetails.startDate}
+                <sup>th</sup> to {ShopDetails.endDate}
+                <sup>th</sup> Dec
+              </p>
+            </div>
             <p className="text-3xl sm:text-2xl">
               Rating : {ShopDetails.rating} / 10
             </p>

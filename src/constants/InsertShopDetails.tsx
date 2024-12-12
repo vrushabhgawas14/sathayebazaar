@@ -38,6 +38,8 @@ export const InsertShopDetails = [
           "https://drive.google.com/uc?id=1ckWntpoawUpqMKU0vStswz4k3SlOEQH2",
       },
     ],
+    startDate: 14,
+    endDate: 11,
   },
   {
     name: "Shop 2",
@@ -66,6 +68,8 @@ export const InsertShopDetails = [
           "https://drive.google.com/uc?id=1ckWntpoawUpqMKU0vStswz4k3SlOEQH2",
       },
     ],
+    startDate: 14,
+    endDate: 12,
   },
   {
     name: "Shop 3",
@@ -100,6 +104,8 @@ export const InsertShopDetails = [
           "https://drive.google.com/uc?id=1ckWntpoawUpqMKU0vStswz4k3SlOEQH2",
       },
     ],
+    startDate: 14,
+    endDate: 17,
   },
   {
     name: "Shop 4",
@@ -122,5 +128,7 @@ export const InsertShopDetails = [
           "https://drive.google.com/uc?id=1ckWntpoawUpqMKU0vStswz4k3SlOEQH2",
       },
     ],
+    startDate: 14,
+    endDate: 17,
   },
 ];
