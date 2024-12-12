@@ -9,6 +9,9 @@ type CardDetails = {
   rating?: number;
   startDate: number;
   endDate: number;
+  handleSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
+  ratingError?: string;
+  ratingGreenError?: string;
 };
 
 export default function ShopCard({
@@ -19,7 +22,11 @@ export default function ShopCard({
   rating,
   startDate,
   endDate,
+  handleSubmit,
+  ratingError,
+  ratingGreenError,
 }: CardDetails) {
+  const isSuccessfull = ratingError === ratingGreenError; // Just for green text color
   return (
     <>
       <div className="gradientShopComponent my-14 sm:my-10 pt-2 pb-6 px-2 m-4 rounded-xl text-white">
@@ -52,8 +59,45 @@ export default function ShopCard({
             <sup> th</sup> Dec 2024
           </span>
         </div>
-        <div className="text-center pt-4">
+        <div className="text-center pt-8">
           <Button text="View Details" url={`shops/${url}`} small={true} />
+        </div>
+        <div className="flex pt-10 items-center justify-center">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col space-y-2 items-center"
+          >
+            <label htmlFor="inputRating">Enter Rating (1 to 10): </label>
+            <input
+              type="number"
+              id="inputRating"
+              name="inputRating"
+              placeholder="Enter rating"
+              min={1}
+              max={10}
+              className="text-black w-40 outline-none px-2 py-1"
+              required
+            />
+            <input
+              type="text"
+              name="inputSlug"
+              value={url}
+              className="hidden"
+              readOnly
+            />
+            <button type="submit" className="bg-red-800">
+              Submit
+            </button>
+            {ratingError && (
+              <p
+                className={`text-center bg-gray-200 px-2 py-1 rounded-2xl line-clamp-4 ${
+                  isSuccessfull ? "text-green-700" : "text-red-600"
+                }`}
+              >
+                {ratingError}
+              </p>
+            )}
+          </form>
         </div>
       </div>
     </>

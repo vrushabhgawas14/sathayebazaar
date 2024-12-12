@@ -1,42 +1,96 @@
+"use client";
 import Line from "@/components/Line";
 import ShopCard from "@/components/ShopCard";
-import { connectToDatabase } from "@/lib/mongoDB";
-import { Shops } from "@/models/Shop";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-export default async function Home() {
+export default function Home() {
   const downward = (
     <svg viewBox="0 0 330 330" className="fill-white w-4 h-4">
       <path d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path>
     </svg>
   );
-  const today = new Date();
-  const todaysDate = today.getDate();
 
-  let ShopsDetails;
-  let PastShopsDetails;
-  try {
-    await connectToDatabase();
-    const ShopsDetailsTemp = await Shops.find({
-      endDate: { $gte: todaysDate },
-    });
-    ShopsDetails = ShopsDetailsTemp;
+  const [ShopsDetails, setShopsDetails] = useState([]);
+  const [PastShopsDetails, setPastShopsDetails] = useState([]);
 
-    PastShopsDetails = await Shops.find({
-      endDate: { $lt: todaysDate },
-    });
-  } catch {
-    return (
-      <div className="flex justify-center py-20 text-2xl px-10 text-center">
-        Check your internet connection and try again!
-      </div>
-    );
-  }
+  const [errorCurrPage, setErrorCurrPage] = useState("");
+  const [errorPastPage, setErrorPastPage] = useState("");
 
-  let isPastShop = false;
-  if (PastShopsDetails.length >= 1) {
-    isPastShop = true;
-  }
+  const [ratingError, setRatingError] = useState("");
+  const [ratingGreenError, setRatingGreenError] = useState("");
+
+  useEffect(() => {
+    async function fetchShops() {
+      try {
+        const currResponse = await fetch("api/shops");
+        const pastResonse = await fetch("api/pastShops");
+
+        const currData = await currResponse.json();
+        const pastData = await pastResonse.json();
+
+        if (currResponse.status === 500) {
+          // Failed to Fetch Current Shops
+          await setErrorCurrPage(currData.message);
+        }
+
+        if (pastResonse.status === 500) {
+          // Failed to Fetch Past Shops
+          await setErrorPastPage(pastData.message);
+        }
+
+        setShopsDetails(currData);
+        setPastShopsDetails(pastData);
+
+        // eslint-disable-next-line
+      } catch (err: any) {
+        // Something might went wrong with fetching json or else.
+        setErrorCurrPage("Error from homepage:= " + err.message);
+        setErrorPastPage("Past Error from homepage:= " + err.message);
+      }
+    }
+
+    fetchShops();
+  }, [ratingError]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const inputRating = formData.get("inputRating");
+      const inputSlug = formData.get("inputSlug");
+
+      const res = await fetch("api/shops", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          inputRating,
+          inputSlug,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.status === 201) {
+        // Rated Successfully
+        await setRatingError(data.message);
+        setRatingGreenError(data.message);
+      }
+
+      if (res.status === 400 || res.status === 500) {
+        // Failed to rate the shop. || Shop not found
+        await setRatingError(data.message);
+      }
+
+      // eslint-disable-next-line
+    } catch (err: any) {
+      // Something might went wrong with fetching json or else.
+      setRatingError("Error of Rating := " + err.message);
+    }
+  };
 
   return (
     <>
@@ -71,8 +125,13 @@ export default async function Home() {
           <div className="text-5xl text-center w-[50%] md:w-[70%] sm:w-[95%] sm:text-3xl sm:px-10">
             Browse Shops
           </div>
+          {errorCurrPage && (
+            <p className="flex justify-center py-10 text-2xl px-10 text-center">
+              Error: {errorCurrPage}
+            </p>
+          )}
           <div>
-            {(await ShopsDetails).map(
+            {ShopsDetails.map(
               (
                 item: {
                   name: string;
@@ -94,6 +153,9 @@ export default async function Home() {
                   rating={item.rating}
                   startDate={item.startDate}
                   endDate={item.endDate}
+                  handleSubmit={handleSubmit}
+                  ratingError={ratingError}
+                  ratingGreenError={ratingGreenError}
                 />
               )
             )}
@@ -102,14 +164,19 @@ export default async function Home() {
         <Line />
 
         {/* Past Shops */}
-        {isPastShop && (
+        {PastShopsDetails.length >= 1 && (
           <>
             <section className="flex flex-col items-center space-y-8 w-full py-24">
               <div className="text-5xl text-center w-[50%] md:w-[70%] sm:w-[95%] sm:text-3xl sm:px-10">
                 Past Shops
               </div>
+              {errorPastPage && (
+                <p className="flex justify-center py-10 text-2xl px-10 text-center">
+                  Error: {errorPastPage}
+                </p>
+              )}
               <div>
-                {(await PastShopsDetails).map(
+                {PastShopsDetails.map(
                   (
                     item: {
                       name: string;
@@ -131,6 +198,9 @@ export default async function Home() {
                       rating={item.rating}
                       startDate={item.startDate}
                       endDate={item.endDate}
+                      handleSubmit={handleSubmit}
+                      ratingError={ratingError}
+                      ratingGreenError={ratingGreenError}
                     />
                   )
                 )}
