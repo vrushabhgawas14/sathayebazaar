@@ -46,7 +46,7 @@ html::-webkit-scrollbar {
 }
 
 .gradientShopComponentEffect {
-  background: linear-gradient(to bottom, #27272731, #18000e8c, #18000e);
+  background: linear-gradient(to bottom, #27272798, #18000e9f, #18000e);
 }
 
 input[type="number"]::-webkit-inner-spin-button,
