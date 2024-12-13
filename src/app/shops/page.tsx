@@ -31,30 +31,34 @@ export default function Shop() {
   //   await Shops.deleteOne({ slug: "shop4" });
 
   const [ShopsDetails, setShopsDetails] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(true);
 
-  useEffect(() => {
-    async function fetchShops() {
-      try {
-        const response = await fetch("api/shops?isTopRated=true");
+  const fetchShops = async () => {
+    try {
+      const response = await fetch("api/shops?isTopRated=true");
 
-        const data = await response.json();
+      const data = await response.json();
 
-        if (response.status === 500) {
-          // Failed to Fetch Current Shops
-          console.log(data.message);
-        }
-
-        setShopsDetails(data);
-
-        // eslint-disable-next-line
-      } catch (err: any) {
-        // Something might went wrong with fetching json or else.
-        console.error("Error from homepage:= " + err.message);
+      if (response.status === 500) {
+        // Failed to Fetch Current Shops
+        console.log(data.message);
       }
-    }
 
-    fetchShops();
-  }, []);
+      setShopsDetails(data);
+
+      // eslint-disable-next-line
+    } catch (err: any) {
+      // Something might went wrong with fetching json or else.
+      console.error("Error from homepage:= " + err.message);
+    }
+  };
+
+  // fetchShops();
+  useEffect(() => {
+    if (isSubmitting) {
+      fetchShops().then(() => setIsSubmitting(false));
+    }
+  }, [isSubmitting]);
 
   return (
     <>
@@ -87,6 +91,7 @@ export default function Shop() {
                   rating={item.rating}
                   startDate={item.startDate}
                   endDate={item.endDate}
+                  setIsSubmitting={setIsSubmitting}
                 />
               )
             )}

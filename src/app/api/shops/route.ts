@@ -37,17 +37,10 @@ export const POST = async (request: NextRequest) => {
     const { inputRating, inputSlug } = await request.json();
     await connectToDatabase();
 
-    const updatedRating = await Shops.updateOne(
+    await Shops.updateOne(
       { slug: inputSlug },
       { $set: { rating: inputRating } }
     );
-
-    if (updatedRating.modifiedCount === 0) {
-      return NextResponse.json(
-        { message: "Shop not found or no changes made" },
-        { status: 400 }
-      );
-    }
 
     return NextResponse.json(
       { message: "Rated successfully" },

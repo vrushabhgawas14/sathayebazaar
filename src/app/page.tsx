@@ -17,80 +17,43 @@ export default function Home() {
   const [errorCurrPage, setErrorCurrPage] = useState("");
   const [errorPastPage, setErrorPastPage] = useState("");
 
-  const [ratingError, setRatingError] = useState("");
-  const [ratingGreenError, setRatingGreenError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(true);
 
-  useEffect(() => {
-    async function fetchShops() {
-      try {
-        const currResponse = await fetch("api/shops");
-        const pastResonse = await fetch("api/pastShops");
-
-        const currData = await currResponse.json();
-        const pastData = await pastResonse.json();
-
-        if (currResponse.status === 500) {
-          // Failed to Fetch Current Shops
-          await setErrorCurrPage(currData.message);
-        }
-
-        if (pastResonse.status === 500) {
-          // Failed to Fetch Past Shops
-          await setErrorPastPage(pastData.message);
-        }
-
-        setShopsDetails(currData);
-        setPastShopsDetails(pastData);
-
-        // eslint-disable-next-line
-      } catch (err: any) {
-        // Something might went wrong with fetching json or else.
-        setErrorCurrPage("Error from homepage:= " + err.message);
-        setErrorPastPage("Past Error from homepage:= " + err.message);
-      }
-    }
-
-    fetchShops();
-  }, [ratingError]);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const fetchShops = async () => {
     try {
-      const formData = new FormData(e.currentTarget);
-      const inputRating = formData.get("inputRating");
-      const inputSlug = formData.get("inputSlug");
+      const currResponse = await fetch("api/shops");
+      const pastResonse = await fetch("api/pastShops");
 
-      const res = await fetch("api/shops", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          inputRating,
-          inputSlug,
-        }),
-      });
+      const currData = await currResponse.json();
+      const pastData = await pastResonse.json();
 
-      const data = await res.json();
-
-      if (res.status === 201) {
-        // Rated Successfully
-        await setRatingError(data.message);
-        setRatingGreenError(data.message);
+      if (currResponse.status === 500) {
+        // Failed to Fetch Current Shops
+        await setErrorCurrPage(currData.message);
       }
 
-      if (res.status === 400 || res.status === 500) {
-        // Failed to rate the shop. || Shop not found
-        await setRatingError(data.message);
+      if (pastResonse.status === 500) {
+        // Failed to Fetch Past Shops
+        await setErrorPastPage(pastData.message);
       }
+
+      setShopsDetails(currData);
+      setPastShopsDetails(pastData);
 
       // eslint-disable-next-line
     } catch (err: any) {
       // Something might went wrong with fetching json or else.
-      setRatingError("Error of Rating := " + err.message);
+      setErrorCurrPage("Error from homepage:= " + err.message);
+      setErrorPastPage("Past Error from homepage:= " + err.message);
     }
   };
+
+  // fetchShops();
+  useEffect(() => {
+    if (isSubmitting) {
+      fetchShops().then(() => setIsSubmitting(false));
+    }
+  }, [isSubmitting]);
 
   return (
     <>
@@ -125,6 +88,11 @@ export default function Home() {
           <div className="text-5xl text-center w-[50%] md:w-[70%] sm:w-[95%] sm:text-3xl sm:px-10">
             Browse Shops
           </div>
+          {ShopsDetails.length === 0 && (
+            <p className="text-black flex justify-center py-10 text-2xl px-10 text-center">
+              Loading...
+            </p>
+          )}
           {errorCurrPage && (
             <p className="flex justify-center py-10 text-2xl px-10 text-center">
               Error: {errorCurrPage}
@@ -153,9 +121,7 @@ export default function Home() {
                   rating={item.rating}
                   startDate={item.startDate}
                   endDate={item.endDate}
-                  handleSubmit={handleSubmit}
-                  ratingError={ratingError}
-                  ratingGreenError={ratingGreenError}
+                  setIsSubmitting={setIsSubmitting}
                 />
               )
             )}
@@ -198,9 +164,7 @@ export default function Home() {
                       rating={item.rating}
                       startDate={item.startDate}
                       endDate={item.endDate}
-                      handleSubmit={handleSubmit}
-                      ratingError={ratingError}
-                      ratingGreenError={ratingGreenError}
+                      setIsSubmitting={setIsSubmitting}
                     />
                   )
                 )}
