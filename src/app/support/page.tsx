@@ -11,7 +11,7 @@ export default function Support() {
     const formData = new FormData(event.target);
 
     // const accessKey = ;
-    formData.append("access_key", process.env.FORM_ACCESS_KEY!);
+    formData.append("access_key", "b49d46e3-540b-43d7-8811-91b9209e3ccc");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
