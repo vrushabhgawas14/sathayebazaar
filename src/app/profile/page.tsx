@@ -42,7 +42,7 @@ export default function Profile() {
         <p className="text-lg mt-2 sm:px-4">
           We hope you&apos;re having a great experience.
         </p>
-        <p className="text-md italic mt-4">
+        <p className="text-md italic pt-10">
           &quot;The best time to shop is now!&quot;
         </p>
         <div className=" flex justify-center items-center text-center w-full pt-4">
