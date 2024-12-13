@@ -34,14 +34,27 @@ export const GET = async (request: NextRequest) => {
 
 export const POST = async (request: NextRequest) => {
   try {
-    const { inputRating, inputSlug } = await request.json();
+    const { inputRating, inputSlug, ratedUser } = await request.json();
     await connectToDatabase();
 
-    await Shops.updateOne(
-      { slug: inputSlug },
-      { $set: { rating: inputRating } }
-    );
+    const getShop = await Shops.findOne({ slug: inputSlug });
 
+    if (getShop.ratedUsers.includes(ratedUser)) {
+      return NextResponse.json(
+        { message: "You have Already Rated this shop." },
+        { status: 400 }
+      );
+    }
+    getShop.ratedUsers.push(ratedUser);
+    getShop.ratingsArray.push(inputRating);
+
+    const getRating =
+      getShop.ratingsArray.reduce((a: number, b: number) => a + b, 0) /
+      getShop.ratingsArray.length;
+
+    await Shops.updateOne({ slug: inputSlug }, { $set: { rating: getRating } });
+
+    await getShop.save();
     return NextResponse.json(
       { message: "Rated successfully" },
       { status: 201 }

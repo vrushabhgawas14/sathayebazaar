@@ -13,6 +13,7 @@ type CardDetails = {
   startDate: number;
   endDate: number;
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
+  numberOfRatings: number;
 };
 
 export default function ShopCard({
@@ -24,6 +25,7 @@ export default function ShopCard({
   startDate,
   endDate,
   setIsSubmitting,
+  numberOfRatings,
 }: CardDetails) {
   const downward = (
     <svg viewBox="0 0 330 330" className="fill-white w-3 h-3">
@@ -44,6 +46,7 @@ export default function ShopCard({
       const formData = new FormData(e.currentTarget);
       const inputRating = formData.get("inputRating");
       const inputSlug = formData.get("inputSlug");
+      const ratedUser = formData.get("ratedUser");
 
       const res = await fetch("api/shops", {
         method: "POST",
@@ -53,6 +56,7 @@ export default function ShopCard({
         body: JSON.stringify({
           inputRating,
           inputSlug,
+          ratedUser,
         }),
       });
 
@@ -61,6 +65,11 @@ export default function ShopCard({
       }
 
       const data = await res.json();
+
+      if (res.status === 400) {
+        // User Already Rated them.
+        await setRatingError(data.message);
+      }
 
       if (res.status === 201) {
         // Rated Successfully
@@ -94,19 +103,24 @@ export default function ShopCard({
             loading="lazy"
             quality={70}
             alt={title}
-            className="h-full rounded-lg object-cover lg:w-[60vw] w-[80vw]"
+            className="h-full rounded-lg object-cover lg:w-[60vw] w-[85vw]"
           />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-5xl sm:text-2xl w-full text-center pt-3 sm:pt-1 gradientShopComponentEffect bg-opacity-50">
             {title}
           </div>
         </div>
-        <div className="flex sm:flex-col justify-between items-center px-4">
+        <div className="flex sm:flex-col justify-between px-4">
           <div className="text-center py-2 text-xl sm:text-lg">
             Category : {category}
           </div>
-          <div className="text-center font-bold py-2">Rating: {rating}/10</div>
+          <div className="text-center font-bold py-2">
+            <p>Rating: {rating}/10</p>
+            <p className="text-sm opacity-80">
+              (Based on {numberOfRatings} ratings)
+            </p>
+          </div>
         </div>
-        <div className="px-4">
+        <div className="px-4 text-center sm:pt-2">
           <span>Duration: </span>
           <span className="italic">
             {startDate}
@@ -114,7 +128,7 @@ export default function ShopCard({
             <sup> th</sup> Dec 2024
           </span>
         </div>
-        <div className="flex items-center justify-center text-center space-x-4 pt-8">
+        <div className="flex items-center justify-center text-center space-x-4 pt-6">
           <button
             className="bg-background-start flex items-center justify-center space-x-2 px-4 py-1 text-base text-red-100 border-2 border-red-100 border-opacity-90 rounded-xl ease-in duration-200 hover:bg-opacity-50"
             onClick={() => setIsRatingOpen(!isRatingOpen)}
@@ -147,6 +161,13 @@ export default function ShopCard({
                   type="text"
                   name="inputSlug"
                   value={url}
+                  className="hidden"
+                  readOnly
+                />
+                <input
+                  type="text"
+                  name="ratedUser"
+                  value={session?.user?.email || ""}
                   className="hidden"
                   readOnly
                 />

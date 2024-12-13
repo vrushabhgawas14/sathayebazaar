@@ -1,35 +1,8 @@
 "use client";
 import ShopCard from "@/components/ShopCard";
 import { useEffect, useState } from "react";
-// import { InsertShopDetails } from "@/constants/InsertShopDetails";
-// import { connectToDatabase } from "@/lib/mongoDB";
 
 export default function Shop() {
-  // await connectToDatabase();
-
-  // Inserting / Creating Shop Details
-  // InsertShopDetails.map(async (item) => {
-  //   const isShopPresent = await Shops.findOne({ slug: item.slug });
-  //   if (!isShopPresent) {
-  //     const newShop = new Shops({
-  //       name: item.name,
-  //       category: item.category,
-  //       slug: item.slug,
-  //       imageURL: item.imageURL,
-  //       rating: item.rating,
-  //       products: item.products,
-  //       startDate: item.startDate,
-  //       endDate: item.endDate,
-  //     });
-
-  //     await newShop.save();
-  //   }
-  // });
-
-  // Deleting Shop Details
-  //   await Shops.deleteMany({ slug: "shop4" });
-  //   await Shops.deleteOne({ slug: "shop4" });
-
   const [ShopsDetails, setShopsDetails] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(true);
 
@@ -79,6 +52,7 @@ export default function Shop() {
                   rating: number;
                   startDate: number;
                   endDate: number;
+                  ratedUsers: string[];
                 },
                 index
               ) => (
@@ -92,6 +66,7 @@ export default function Shop() {
                   startDate={item.startDate}
                   endDate={item.endDate}
                   setIsSubmitting={setIsSubmitting}
+                  numberOfRatings={item.ratedUsers.length}
                 />
               )
             )}

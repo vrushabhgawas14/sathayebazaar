@@ -1,11 +1,11 @@
 export const InsertShopDetails = [
   {
     name: "Shop 1",
-    category: "Something",
+    category: "Food",
     slug: "shop1",
     imageURL:
-      "https://drive.google.com/uc?id=1UIwtetmDame05BlPjt7R6Zf_dxKAUJ-v",
-    rating: 8,
+      "https://drive.google.com/uc?id=1bUieKLO86OLZTEOjNiZg4q2ID-n4gKgn",
+    rating: 0,
     products: [
       {
         name: "Product 1",
@@ -39,15 +39,17 @@ export const InsertShopDetails = [
       },
     ],
     startDate: 14,
-    endDate: 11,
+    endDate: 13,
+    ratedUsers: [],
+    ratingsArray: [],
   },
   {
     name: "Shop 2",
-    category: "anything",
+    category: "Food",
     slug: "shop2",
     imageURL:
-      "https://drive.google.com/uc?id=1UIwtetmDame05BlPjt7R6Zf_dxKAUJ-v",
-    rating: 9,
+      "https://drive.google.com/uc?id=1bUieKLO86OLZTEOjNiZg4q2ID-n4gKgn",
+    rating: 0,
     products: [
       {
         name: "Product 1",
@@ -70,14 +72,16 @@ export const InsertShopDetails = [
     ],
     startDate: 14,
     endDate: 12,
+    ratedUsers: [],
+    ratingsArray: [],
   },
   {
     name: "Shop 3",
-    category: "nothing",
+    category: "Books",
     slug: "shop3",
     imageURL:
-      "https://drive.google.com/uc?id=1UIwtetmDame05BlPjt7R6Zf_dxKAUJ-v",
-    rating: 7,
+      "https://drive.google.com/uc?id=1bUieKLO86OLZTEOjNiZg4q2ID-n4gKgn",
+    rating: 0,
     products: [
       {
         name: "Product 2",
@@ -106,14 +110,16 @@ export const InsertShopDetails = [
     ],
     startDate: 14,
     endDate: 17,
+    ratedUsers: [],
+    ratingsArray: [],
   },
   {
     name: "Shop 4",
-    category: "nothing",
+    category: "Clothes",
     slug: "shop4",
     imageURL:
-      "https://drive.google.com/uc?id=1UIwtetmDame05BlPjt7R6Zf_dxKAUJ-v",
-    rating: 8.5,
+      "https://drive.google.com/uc?id=1bUieKLO86OLZTEOjNiZg4q2ID-n4gKgn",
+    rating: 0,
     products: [
       {
         name: "Product 2",
@@ -130,5 +136,7 @@ export const InsertShopDetails = [
     ],
     startDate: 14,
     endDate: 17,
+    ratedUsers: [],
+    ratingsArray: [],
   },
 ];

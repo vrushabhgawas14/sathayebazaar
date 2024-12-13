@@ -72,7 +72,6 @@ export default function Home() {
           </div> */}
           <Link
             href="#shops"
-            aria-label="About Us"
             className="normalButton flex items-center space-x-2 px-6 py-4 text-xl leading-tight tracking-widest text-gray-300 hover:text-gray-100 rounded-lg border-2 border-slate-950"
           >
             <span>Explore Shops</span>
@@ -109,6 +108,7 @@ export default function Home() {
                   rating: number;
                   startDate: number;
                   endDate: number;
+                  ratedUsers: string[];
                 },
                 index
               ) => (
@@ -122,6 +122,7 @@ export default function Home() {
                   startDate={item.startDate}
                   endDate={item.endDate}
                   setIsSubmitting={setIsSubmitting}
+                  numberOfRatings={item.ratedUsers.length}
                 />
               )
             )}
@@ -152,6 +153,7 @@ export default function Home() {
                       rating: number;
                       startDate: number;
                       endDate: number;
+                      ratedUsers: string[];
                     },
                     index
                   ) => (
@@ -165,6 +167,7 @@ export default function Home() {
                       startDate={item.startDate}
                       endDate={item.endDate}
                       setIsSubmitting={setIsSubmitting}
+                      numberOfRatings={item.ratedUsers.length}
                     />
                   )
                 )}

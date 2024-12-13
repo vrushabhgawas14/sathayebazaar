@@ -3,7 +3,7 @@
 import { hamburgerMenu, NavElementDetails } from "@/constants/NavbarDetails";
 import Link from "next/link";
 import { useState } from "react";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Button from "./Button";
 
 export default function Navbar() {
@@ -44,9 +44,8 @@ export default function Navbar() {
             </div>
             <div>
               {isLoggedIn ? (
-                <div className="flex lg:space-x-4 md:flex-col md:space-y-4 sm:flex-col sm:space-y-4">
+                <div className="flex">
                   <Button text="Profile" url="/profile" />
-                  <Button text="LogOut" url="/" onClick={signOut} />
                 </div>
               ) : (
                 <div className="flex space-x-4">

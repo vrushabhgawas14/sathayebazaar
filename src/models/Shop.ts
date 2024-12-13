@@ -15,6 +15,8 @@ const shopSchema = new Schema({
   slug: { type: String, required: true, unique: true },
   startDate: { type: Number, required: true },
   endDate: { type: Number, required: true },
+  ratedUsers: [{ type: String }],
+  ratingsArray: [{ type: Number }],
 });
 
 export const Shops =
