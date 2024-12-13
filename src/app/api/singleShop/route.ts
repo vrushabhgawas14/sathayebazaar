@@ -9,10 +9,14 @@ export const POST = async (request: NextRequest) => {
 
     const shops = await Shops.findOne({ slug: slugURL });
 
+    if (shops === null) {
+      return NextResponse.json({ message: "No Shop Found." }, { status: 400 });
+    }
+
     return NextResponse.json(shops);
   } catch {
     return NextResponse.json(
-      { message: "Failed to fetch past shops" },
+      { message: "Failed to fetch personal shop" },
       { status: 500 }
     );
   }
