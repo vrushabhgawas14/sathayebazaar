@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Button from "./Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 
 type CardDetails = {
@@ -38,6 +38,24 @@ export default function ShopCard({
   const [ratingGreenError, setRatingGreenError] = useState("");
 
   const { data: session } = useSession();
+
+  // Successfull Rating Timeout
+  useEffect(() => {
+    if (ratingError) {
+      const timer = setTimeout(() => {
+        setRatingError("");
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [ratingError]);
+
+  // Closing RatingForm After Submit
+  function closeRatingForm() {
+    const timer = setTimeout(() => {
+      setIsRatingOpen(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -82,6 +100,8 @@ export default function ShopCard({
         await setRatingError(data.message);
       }
 
+      closeRatingForm();
+
       // eslint-disable-next-line
     } catch (err: any) {
       // Something might went wrong with fetching json or else.
@@ -97,13 +117,13 @@ export default function ShopCard({
         <div className="relative h-[50vh] md:h-[40vh] sm:h-[30vh]">
           <Image
             src={image}
-            width="0"
-            height="0"
+            width="400"
+            height="400"
             sizes="100vw"
             loading="lazy"
-            quality={70}
+            quality={90}
             alt={title}
-            className="h-full rounded-lg object-cover lg:w-[60vw] w-[85vw]"
+            className="lg:h-[50vh] rounded-lg lg:w-[60vw] h-full w-[80vw]"
           />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-5xl sm:text-2xl w-full text-center pt-3 sm:pt-1 gradientShopComponentEffect bg-opacity-50">
             {title}

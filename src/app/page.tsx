@@ -5,12 +5,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const downward = (
-    <svg viewBox="0 0 330 330" className="fill-white w-4 h-4">
-      <path d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path>
-    </svg>
-  );
-
   const [ShopsDetails, setShopsDetails] = useState([]);
   const [PastShopsDetails, setPastShopsDetails] = useState([]);
 
@@ -22,22 +16,22 @@ export default function Home() {
   const fetchShops = async () => {
     try {
       const currResponse = await fetch("api/shops");
-      const pastResonse = await fetch("api/pastShops");
-
       const currData = await currResponse.json();
-      const pastData = await pastResonse.json();
 
       if (currResponse.status === 500) {
         // Failed to Fetch Current Shops
         await setErrorCurrPage(currData.message);
       }
+      setShopsDetails(currData);
+
+      // Past Shops
+      const pastResonse = await fetch("api/pastShops");
+      const pastData = await pastResonse.json();
 
       if (pastResonse.status === 500) {
         // Failed to Fetch Past Shops
         await setErrorPastPage(pastData.message);
       }
-
-      setShopsDetails(currData);
       setPastShopsDetails(pastData);
 
       // eslint-disable-next-line
@@ -71,11 +65,11 @@ export default function Home() {
             <span> as you stalk your crush.</span>
           </div> */}
           <Link
-            href="#shops"
+            href="/shops"
             className="normalButton flex items-center space-x-2 px-6 py-4 text-xl leading-tight tracking-widest text-gray-300 hover:text-gray-100 rounded-lg border-2 border-slate-950"
           >
-            <span>Explore Shops</span>
-            <span>{downward}</span>
+            <span>View Top Rated Shops</span>
+            {/* <span>{downward}</span> */}
           </Link>
         </section>
         <Line />

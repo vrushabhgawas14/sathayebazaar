@@ -21,6 +21,7 @@ export const GET = async (request: NextRequest) => {
       shops = await Shops.find({
         endDate: { $gte: todaysDate },
       });
+      // shops = shops.sort(() => Math.random() - 0.5);
     }
 
     return NextResponse.json(shops);

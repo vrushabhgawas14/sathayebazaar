@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Shop() {
   const [ShopsDetails, setShopsDetails] = useState([]);
-  const [isSubmitting, setIsSubmitting] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const fetchShops = async () => {
     try {
@@ -26,10 +26,16 @@ export default function Shop() {
     }
   };
 
+  useEffect(() => {
+    fetchShops();
+  }, []);
+
   // fetchShops();
   useEffect(() => {
     if (isSubmitting) {
-      fetchShops().then(() => setIsSubmitting(false));
+      setTimeout(() => {
+        fetchShops().then(() => setIsSubmitting(false));
+      }, 3000);
     }
   }, [isSubmitting]);
 
