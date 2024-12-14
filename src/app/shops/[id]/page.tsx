@@ -90,8 +90,9 @@ export default function ShopProfile() {
             </p>
           </div>
         </section>
+        {/*
         <Line />
-        {/* Products of this Shop */}
+         Products of this Shop 
         <div className="flex flex-col items-center justify-center space-y-10 py-10 w-full">
           <p className="text-5xl sm:text-3xl sm:px-10 text-center">Products:</p>
           <div className="flex flex-wrap items-center justify-center p-8 h-auto w-full sm:flex-col">
@@ -110,6 +111,7 @@ export default function ShopProfile() {
             )}
           </div>
         </div>
+        */}
       </main>
     </>
   );
