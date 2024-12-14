@@ -1,6 +1,8 @@
 "use client";
+{/*
 import Line from "@/components/Line";
 import ProductsCard from "@/components/ProductsCard";
+*/}
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
