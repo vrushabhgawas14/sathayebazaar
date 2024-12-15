@@ -14,6 +14,7 @@ type CardDetails = {
   endDate: number;
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
   numberOfRatings: number;
+  isShopPage?: boolean;
 };
 
 export default function ShopCard({
@@ -26,6 +27,7 @@ export default function ShopCard({
   endDate,
   setIsSubmitting,
   numberOfRatings,
+  isShopPage,
 }: CardDetails) {
   const downward = (
     <svg viewBox="0 0 330 330" className="fill-white w-3 h-3">
@@ -116,8 +118,16 @@ export default function ShopCard({
 
   return (
     <>
-      <div className="gradientShopComponent my-14 sm:my-10 pt-2 pb-6 px-2 m-4 rounded-xl text-white">
-        <div className="relative h-[50vh] md:h-[40vh] sm:h-[30vh]">
+      <section
+        className={`gradientShopComponent my-14 sm:my-10 pt-2 pb-6 px-2 m-4 rounded-xl text-white ${
+          isShopPage && "lg:flex"
+        }`}
+      >
+        <section
+          className={`relative h-[50vh] md:h-[40vh] sm:h-[30vh] ${
+            isShopPage && "lg:h-[50vh]"
+          }`}
+        >
           <Image
             src={image}
             width="400"
@@ -126,122 +136,138 @@ export default function ShopCard({
             loading="lazy"
             quality={90}
             alt={title}
-            className="lg:h-[50vh] rounded-lg lg:w-[60vw] h-full w-[80vw]"
+            className={`lg:h-[50vh] rounded-lg lg:w-[60vw] h-full w-[80vw] ${
+              isShopPage && "lg:h-[50vh] lg:w-[50vw]"
+            }`}
           />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-5xl sm:text-2xl w-full text-center pt-3 sm:pt-1 gradientShopComponentEffect bg-opacity-50">
             {title}
           </div>
-        </div>
-        <div className="flex sm:flex-col justify-between px-4">
-          <div className="text-center py-2 text-xl sm:text-lg">
-            Category : {category}
-          </div>
-          <div className="text-center font-bold py-2">
-            <p>Rating: {rating} / 10</p>
-            <p className="text-sm opacity-80">
-              (Based on {numberOfRatings} ratings)
-            </p>
-          </div>
-        </div>
-        <div className="px-4 text-center sm:pt-2">
-          <span>Duration: </span>
-          <span className="italic">
-            {startDate}
-            <sup> th</sup> to {endDate}
-            <sup> th</sup> Dec 2024
-          </span>
-        </div>
-        <div className="flex items-center justify-center text-center space-x-4 pt-6">
-          <button
-            className="bg-background-start flex items-center justify-center space-x-2 px-4 py-1 text-base text-red-100 border-2 border-red-100 border-opacity-90 rounded-xl ease-in duration-200 hover:bg-opacity-50"
-            onClick={() => setIsRatingOpen(!isRatingOpen)}
+        </section>
+        <section className={`${isShopPage && "lg:px-14"}`}>
+          <div
+            className={`flex sm:flex-col justify-between px-4 ${
+              isShopPage && "lg:flex-col-reverse"
+            }`}
           >
-            <span>Rate Us !</span>
-            <span>{downward}</span>
-          </button>
-          <Button text="View Details" url={`shops/${url}`} small={true} />
-        </div>
-        {isRatingOpen && (
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col space-y-4 pt-10 items-center"
+            <div className="text-center py-2 text-xl sm:text-lg text-gray-200">
+              Category : {category}
+            </div>
+            <div
+              className={`text-xl text-center font-bold py-2 ${
+                isShopPage && "lg:text-2xl lg:py-4"
+              }`}
+            >
+              <p>Rating: {rating} / 10</p>
+              <p className={`text-sm opacity-80 ${isShopPage && "lg:text-lg"}`}>
+                (Based on {numberOfRatings} ratings)
+              </p>
+            </div>
+          </div>
+          <div className="px-4 text-center sm:pt-2">
+            <span>Duration: </span>
+            <span className="italic">
+              {startDate}
+              <sup> th</sup> to {endDate}
+              <sup> th</sup> Dec 2024
+            </span>
+          </div>
+          <div
+            className={`flex items-center justify-center text-center space-x-4 pt-6`}
           >
-            {session ? (
-              // Logged In User
-              <div className="space-x-2">
-                <input
-                  type="number"
-                  id="inputRating"
-                  name="inputRating"
-                  placeholder="Enter Rating (1 to 10)"
-                  min={1}
-                  max={10}
-                  step={0.1}
-                  className={`text-black w-48 outline-none px-2 pl-4 py-1 rounded-xl`}
-                  required
-                />
-                <input
-                  type="text"
-                  name="inputSlug"
-                  value={url}
-                  className="hidden"
-                  readOnly
-                />
-                <input
-                  type="text"
-                  name="ratedUser"
-                  value={session?.user?.email || ""}
-                  className="hidden"
-                  readOnly
-                />
-                <button
-                  type="submit"
-                  className={`bg-background-start px-4 py-1 text-base text-red-100 border-2 border-red-100 border-opacity-90 rounded-xl ease-in duration-200 hover:bg-background-mid`}
-                >
-                  Submit
-                </button>
-              </div>
-            ) : (
-              // Normal User
-              <>
+            <button
+              className="bg-background-start flex items-center justify-center space-x-2 px-4 py-1 text-base text-red-100 border-2 border-red-100 border-opacity-90 rounded-xl ease-in duration-200 hover:bg-opacity-50"
+              onClick={() => setIsRatingOpen(!isRatingOpen)}
+            >
+              <span>Rate Us !</span>
+              <span>{downward}</span>
+            </button>
+            <Button text="View Details" url={`shops/${url}`} small={true} />
+          </div>
+          {isRatingOpen && (
+            <form
+              onSubmit={handleSubmit}
+              className={`flex flex-col space-y-4 pt-10 items-center ${
+                isShopPage && "lg:pt-6"
+              }`}
+            >
+              {session ? (
+                // Logged In User
                 <div className="space-x-2">
                   <input
                     type="number"
+                    id="inputRating"
+                    name="inputRating"
                     placeholder="Enter Rating (1 to 10)"
+                    min={1}
+                    max={10}
+                    step={0.1}
                     className={`text-black w-48 outline-none px-2 pl-4 py-1 rounded-xl`}
-                    disabled
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="inputSlug"
+                    value={url}
+                    className="hidden"
+                    readOnly
+                  />
+                  <input
+                    type="text"
+                    name="ratedUser"
+                    value={session?.user?.email || ""}
+                    className="hidden"
+                    readOnly
                   />
                   <button
                     type="submit"
-                    className={`bg-background-start px-4 py-1 text-base text-red-100 border-2 border-red-100 border-opacity-90 rounded-xl ease-in duration-200 hover:bg-background-mid ${
-                      !session && "opacity-40"
-                    }`}
-                    disabled
+                    className={`bg-background-start px-4 py-1 text-base text-red-100 border-2 border-red-100 border-opacity-90 rounded-xl ease-in duration-200 hover:bg-background-mid`}
                   >
                     Submit
                   </button>
                 </div>
-                <div className="italic text-center flex flex-wrap">
-                  (User needs to be Logged in to Rate.)
-                </div>
-                <Button text="Login" url="/login" />
-              </>
-            )}
-
-            <div>
-              {ratingError && (
-                <p
-                  className={`text-center bg-gray-200 px-2 py-1 rounded-2xl line-clamp-4 ${
-                    isSuccessfull ? "text-green-700" : "text-red-600"
-                  }`}
-                >
-                  {ratingError}
-                </p>
+              ) : (
+                // Normal User
+                <>
+                  <div className="space-x-2">
+                    <input
+                      type="number"
+                      placeholder="Enter Rating (1 to 10)"
+                      className={`text-black w-48 outline-none px-2 pl-4 py-1 rounded-xl`}
+                      disabled
+                    />
+                    <button
+                      type="submit"
+                      className={`bg-background-start px-4 py-1 text-base text-red-100 border-2 border-red-100 border-opacity-90 rounded-xl ease-in duration-200 hover:bg-background-mid ${
+                        !session && "opacity-40"
+                      }`}
+                      disabled
+                    >
+                      Submit
+                    </button>
+                  </div>
+                  <div className="italic text-center flex flex-wrap">
+                    (User needs to be Logged in to Rate.)
+                  </div>
+                  <Button text="Login" url="/login" />
+                </>
               )}
-            </div>
-          </form>
-        )}
-      </div>
+
+              <div>
+                {ratingError && (
+                  <p
+                    className={`text-center bg-gray-200 px-2 py-1 rounded-2xl line-clamp-4 ${
+                      isSuccessfull ? "text-green-700" : "text-red-600"
+                    }`}
+                  >
+                    {ratingError}
+                  </p>
+                )}
+              </div>
+            </form>
+          )}
+        </section>
+      </section>
     </>
   );
 }

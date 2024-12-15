@@ -73,6 +73,7 @@ export default function Shop() {
                   endDate={item.endDate}
                   setIsSubmitting={setIsSubmitting}
                   numberOfRatings={item.ratedUsers.length}
+                  isShopPage={true}
                 />
               )
             )}
