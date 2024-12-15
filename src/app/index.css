@@ -21,11 +21,11 @@ html::-webkit-scrollbar {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-teal-950;
+  @apply bg-background-end;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-950 rounded-xl;
+  @apply bg-red-100 bg-opacity-60 rounded-xl;
 }
 
 .toggleNav {

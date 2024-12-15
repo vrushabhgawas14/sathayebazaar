@@ -1,10 +1,7 @@
 "use client";
-{
-  /*
 import Line from "@/components/Line";
 import ProductsCard from "@/components/ProductsCard";
-*/
-}
+
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -63,8 +60,8 @@ export default function ShopProfile() {
 
   return (
     <>
-      <main className="py-10">
-        <section className="flex flex-col items-center justify-center text-center w-full pb-10">
+      <main className="py-10 lg:flex lg:justify-evenly lg:items-start">
+        <section className="flex flex-col items-center justify-center text-center pb-10 lg:w-[45%]">
           <Image
             src={
               ShopDetails?.imageURL ||
@@ -73,7 +70,7 @@ export default function ShopProfile() {
             height={300}
             width={300}
             alt="Shop Banner"
-            className="h-[30vh] w-[50vw] md:h-[40vh] md:w-[70vw] sm:h-[30vh] sm:w-[80vw] border-2 border-background-start rounded-xl"
+            className="h-[40vh] w-[50vw] md:h-[40vh] md:w-[70vw] sm:h-[30vh] sm:w-[80vw] border-2 border-background-start rounded-xl"
           />
           <div className="text-5xl sm:text-3xl font-bold p-4 sm:px-10 text-center">
             {ShopDetails?.name}
@@ -97,11 +94,11 @@ export default function ShopProfile() {
             </span>
           </div>
         </section>
-        {/*
-        <Line />
-         Products of this Shop 
-        <div className="flex flex-col items-center justify-center space-y-10 py-10 w-full">
-          <p className="text-5xl sm:text-3xl sm:px-10 text-center">Products:</p>
+        <Line ClassName="lg:hidden" />
+        <div className="h-[70vh] p-1 bg-background-start rounded-xl md:hidden sm:hidden" />
+        {/* Products of this Shop */}
+        <section className="flex flex-col items-center justify-center py-10 lg:w-[45%] space-y-4 lg:pt-0">
+          <p className="text-5xl sm:text-3xl sm:px-10 text-center">Products</p>
           <div className="flex flex-wrap items-center justify-center p-8 h-auto w-full sm:flex-col">
             {ShopDetails?.products?.map(
               (
@@ -117,8 +114,7 @@ export default function ShopProfile() {
               )
             )}
           </div>
-        </div>
-        */}
+        </section>
       </main>
     </>
   );

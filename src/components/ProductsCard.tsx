@@ -13,17 +13,17 @@ export default function ProductsCard({ title, image, price }: CardDetails) {
         <div className="relative h-full">
           <Image
             src={image}
-            width="0"
-            height="0"
+            width="100"
+            height="100"
             sizes="100vw"
             loading="lazy"
             quality={70}
             alt="Plan Images"
-            className="h-full object-cover sm:w-72 md:w-80 w-72"
+            className="h-64 sm:w-72 md:w-80 w-60"
           />
         </div>
-        <div className="text-center py-2 text-xl">{title}</div>
-        <div className="text-center text-lg">Price: ₹ {price}</div>
+        <div className="text-center py-2 text-xl font-bold">{title}</div>
+        <div className="text-center text-lg">Price: {price} ₹</div>
       </div>
     </>
   );
