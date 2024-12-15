@@ -2,6 +2,7 @@
 import { FormButton } from "@/components/FormButton";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useState } from "react";
 
 interface Props {
   isLogin?: boolean;
@@ -17,9 +18,10 @@ export default function LoginRegisterForm({
 // greenText,
 Props) {
   // const isSuccessfull = error === greenText; // Just for green text color
+  const [loading, setLoading] = useState(false);
 
   return (
-    <main className="flex items-center justify-center my-10 px-10 min-w-screen text-zinc-200">
+    <main className="flex items-center justify-center my-10 px-8 min-w-screen text-zinc-200">
       <section className="flex flex-col items-center p-4 bg-background-mid rounded-xl w-96">
         <h1 className="text-3xl font-bold">
           {isLogin ? "Login" : "Registration"}
@@ -70,22 +72,25 @@ Props) {
             )}
           </form>
           <p className="font-bold">Or</p> */}
-          <FormButton
-            text={`${isLogin ? "Sign in" : "Continue"} with Google`}
-            onClick={() => signIn("google")}
-          />
+          <div onClick={() => setLoading(!loading)}>
+            <FormButton
+              text={`${isLogin ? "Sign in" : "Continue"} with Google`}
+              onClick={() => signIn("google")}
+              loading={loading}
+            />
+          </div>
           <div>
             {isLogin ? (
               <div className="py-2">
                 Don&apos;t have an account?
-                <Link href="/register" className="pl-1 font-bold">
+                <Link href="/register" className="pl-1 font-bold underline">
                   Register
                 </Link>
               </div>
             ) : (
               <div className="py-2">
                 Already have an account?
-                <Link href="/login" className="pl-1 font-bold">
+                <Link href="/login" className="pl-1 font-bold underline">
                   Login
                 </Link>
               </div>

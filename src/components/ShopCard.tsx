@@ -221,6 +221,7 @@ export default function ShopCard({
                 <div className="italic text-center flex flex-wrap">
                   (User needs to be Logged in to Rate.)
                 </div>
+                <Button text="Login" url="/login" />
               </>
             )}
 

@@ -12,7 +12,7 @@ export default function Login() {
 
   useEffect(() => {
     if (session) {
-      router.replace("/profile");
+      router.replace("/shops");
     }
   }, [session, router]);
 

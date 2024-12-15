@@ -2,9 +2,10 @@ interface Props {
   type?: "submit";
   text: string;
   onClick?: () => void;
+  loading?: boolean;
 }
 
-export const FormButton = ({ type, text, onClick }: Props) => {
+export const FormButton = ({ type, text, onClick, loading }: Props) => {
   const GoogleLogo = (
     <svg
       viewBox="-3 0 262 262"
@@ -36,8 +37,14 @@ export const FormButton = ({ type, text, onClick }: Props) => {
       onClick={onClick}
       className="flex space-x-2 font-semibold text-xl px-2 py-1 bg-zinc-200 text-black hover:bg-white rounded-xl text-center"
     >
-      <span>{GoogleLogo}</span>
-      <span>{text}</span>
+      {loading ? (
+        <span>Loading...</span>
+      ) : (
+        <>
+          <span>{GoogleLogo}</span>
+          <span>{text}</span>
+        </>
+      )}
     </button>
   );
 };

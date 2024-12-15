@@ -6,10 +6,10 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [ShopsDetails, setShopsDetails] = useState([]);
-  const [PastShopsDetails, setPastShopsDetails] = useState([]);
+  // const [PastShopsDetails, setPastShopsDetails] = useState([]);
 
   const [errorCurrPage, setErrorCurrPage] = useState("");
-  const [errorPastPage, setErrorPastPage] = useState("");
+  // const [errorPastPage, setErrorPastPage] = useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(true);
 
@@ -25,20 +25,20 @@ export default function Home() {
       setShopsDetails(currData);
 
       // Past Shops
-      const pastResonse = await fetch("api/pastShops");
-      const pastData = await pastResonse.json();
+      // const pastResonse = await fetch("api/pastShops");
+      // const pastData = await pastResonse.json();
 
-      if (pastResonse.status === 500) {
-        // Failed to Fetch Past Shops
-        await setErrorPastPage(pastData.message);
-      }
-      setPastShopsDetails(pastData);
+      // if (pastResonse.status === 500) {
+      //   // Failed to Fetch Past Shops
+      //   await setErrorPastPage(pastData.message);
+      // }
+      // setPastShopsDetails(pastData);
 
       // eslint-disable-next-line
     } catch (err: any) {
       // Something might went wrong with fetching json or else.
       setErrorCurrPage("Error from homepage:= " + err.message);
-      setErrorPastPage("Past Error from homepage:= " + err.message);
+      // setErrorPastPage("Past Error from homepage:= " + err.message);
     }
   };
 
@@ -125,7 +125,7 @@ export default function Home() {
         <Line />
 
         {/* Past Shops */}
-        {PastShopsDetails.length >= 1 && (
+        {/* {PastShopsDetails.length >= 1 && (
           <>
             <section className="flex flex-col items-center space-y-8 w-full py-24">
               <div className="text-5xl text-center w-[50%] md:w-[70%] sm:w-[95%] sm:text-3xl sm:px-10">
@@ -169,7 +169,7 @@ export default function Home() {
             </section>
             <Line />
           </>
-        )}
+        )} */}
         {/* What is Athawda Bazaar */}
         <section className="flex flex-col items-center space-y-8 w-full py-24">
           <div className="text-4xl text-center w-[50%] md:w-[70%] sm:w-full sm:text-3xl sm:px-10">
