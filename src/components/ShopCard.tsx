@@ -66,6 +66,9 @@ export default function ShopCard({
       const inputSlug = formData.get("inputSlug");
       const ratedUser = formData.get("ratedUser");
 
+      setRatingError("Submitting...");
+      setRatingGreenError("Submitting...");
+
       const res = await fetch("api/shops", {
         method: "POST",
         headers: {
@@ -134,7 +137,7 @@ export default function ShopCard({
             Category : {category}
           </div>
           <div className="text-center font-bold py-2">
-            <p>Rating: {rating}/10</p>
+            <p>Rating: {rating} / 10</p>
             <p className="text-sm opacity-80">
               (Based on {numberOfRatings} ratings)
             </p>

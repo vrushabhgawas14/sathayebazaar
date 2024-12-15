@@ -14,13 +14,14 @@ export const GET = async (request: NextRequest) => {
     const todaysDate = today.getDate();
 
     if (isTopShops === "true") {
+      // shops = await Shops.find().sort({ rating: -1 });
       shops = await Shops.find({
         endDate: { $gte: todaysDate },
-      }).sort({ rating: -1 });
+      }).sort({ bayesianScore: -1 });
     } else {
       shops = await Shops.find({
         endDate: { $gte: todaysDate },
-      });
+      }).sort({ name: 1 });
       // shops = shops.sort(() => Math.random() - 0.5);
     }
 
@@ -46,14 +47,31 @@ export const POST = async (request: NextRequest) => {
         { status: 400 }
       );
     }
+    // Add User and rating
     getShop.ratedUsers.push(ratedUser);
     getShop.ratingsArray.push(inputRating);
 
-    const getRating =
-      getShop.ratingsArray.reduce((a: number, b: number) => a + b, 0) /
-      getShop.ratingsArray.length;
+    const avgRating = parseFloat(
+      (
+        getShop.ratingsArray.reduce((a: number, b: number) => a + b, 0) /
+        getShop.ratingsArray.length
+      ).toFixed(1)
+    );
 
-    await Shops.updateOne({ slug: inputSlug }, { $set: { rating: getRating } });
+    const C = 10; // Confidence Constant
+    const M = 5; // Global Mean
+
+    const bayesianScore = parseFloat(
+      (
+        (C * M + avgRating * getShop.ratingsArray.length) /
+        (C + getShop.ratingsArray.length)
+      ).toFixed(1)
+    );
+
+    await Shops.updateOne(
+      { slug: inputSlug },
+      { $set: { rating: avgRating, bayesianScore: bayesianScore } }
+    );
 
     await getShop.save();
     return NextResponse.json(

@@ -1,8 +1,10 @@
 "use client";
-{/*
+{
+  /*
 import Line from "@/components/Line";
 import ProductsCard from "@/components/ProductsCard";
-*/}
+*/
+}
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -68,10 +70,10 @@ export default function ShopProfile() {
               ShopDetails?.imageURL ||
               "https://drive.google.com/uc?id=1UIwtetmDame05BlPjt7R6Zf_dxKAUJ-v"
             }
-            height={400}
-            width={400}
+            height={300}
+            width={300}
             alt="Shop Banner"
-            className="h-[50vh] w-[50vw] md:h-[40vh] md:w-[80vw] sm:h-[30vh] sm:w-[80vw] border-2 border-background-start rounded-xl"
+            className="h-[30vh] w-[50vw] md:h-[40vh] md:w-[70vw] sm:h-[30vh] sm:w-[80vw] border-2 border-background-start rounded-xl"
           />
           <div className="text-5xl sm:text-3xl font-bold p-4 sm:px-10 text-center">
             {ShopDetails?.name}
@@ -87,9 +89,12 @@ export default function ShopProfile() {
                 <sup>th</sup> Dec
               </p>
             </div>
-            <p className="text-3xl sm:text-2xl">
+            <p className="text-4xl sm:text-2xl">
               Rating : {ShopDetails?.rating} / 10
             </p>
+            <span className="text-xl sm:text-lg font-bold">
+              (Based on {ShopDetails?.ratingsArray?.length} ratings)
+            </span>
           </div>
         </section>
         {/*

@@ -17,6 +17,7 @@ const shopSchema = new Schema({
   endDate: { type: Number, required: true },
   ratedUsers: [{ type: String }],
   ratingsArray: [{ type: Number }],
+  bayesianScore: { type: Number, required: false },
 });
 
 export const Shops =

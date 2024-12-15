@@ -35,6 +35,28 @@ export default async function UserProfile({ params }: any) {
   //   );
   // });
 
+  // Update something for all
+  // const allShops = await Shops.find();
+  // for (const shop of allShops) {
+  //   const bayesianScore = 0;
+  //   await Shops.updateOne(
+  //     { _id: shop._id },
+  //     {
+  //       $set: {
+  //         bayesianScore: bayesianScore,
+  //       },
+  //     }
+  //   );
+  // }
+
+  // Add new field
+  // await Shops.updateMany(
+  //   {}, // Match all documents
+  //   {
+  //     $set: { rating: 0 }, // Add bayesianScore with default value 0
+  //   }
+  // );
+
   // Deleting Shop Details
   // await Shops.deleteMany({ slug: "shop4" });
   // await Shops.deleteOne({ slug: "shop4" });
