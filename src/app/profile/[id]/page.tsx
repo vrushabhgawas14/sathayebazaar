@@ -31,7 +31,7 @@ export default async function UserProfile({ params }: any) {
   // InsertShopDetails.map(async (item) => {
   //   await Shops.updateOne(
   //     { slug: item.slug },
-  //     { $set: { ratingsArray: item.ratingsArray } }
+  //     { $set: { name: item.name } }
   //   );
   // });
 

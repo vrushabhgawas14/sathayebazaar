@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getServerSession } from "next-auth";
 import RootLayoutClient from "@/lib/RootLayoutClient";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://athawda-bazaar.vercel.app"),
@@ -42,6 +43,22 @@ export default async function RootLayout({
   const session = await getServerSession();
   return (
     <html lang="en">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`}
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '${process.env.GOOGLE_ANALYTICS_ID}');
+          `}
+        </Script>
+      </head>
       <body className="bg-red-100 bg-opacity-70 text-slate-900">
         <RootLayoutClient session={session}>
           <Navbar />

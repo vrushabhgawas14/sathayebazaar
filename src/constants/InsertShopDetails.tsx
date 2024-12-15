@@ -1,23 +1,29 @@
 export const InsertShopDetails = [
   {
-    name: "S&K Food Adda by kajal",
+    name: "Little Bites by Nidhi",
     category: "Food",
-    slug: "s-and-k-food-adda",
+    slug: "",
     imageURL:
-      "https://drive.google.com/uc?id=1DAfS76nZWVkaPMouHjxIFRTlblpApOHC",
+      "https://drive.google.com/uc?id=1IJ7WWJa1R1HsPgHWT1Siady7rT81mWBd",
     rating: 0,
     products: [
       {
-        name: "Product 2",
-        price: 44,
+        name: "Nuggets",
+        price: 70,
         productImage:
-          "https://drive.google.com/uc?id=1ckWntpoawUpqMKU0vStswz4k3SlOEQH2",
+          "https://drive.google.com/uc?id=1rUJ8xc6zVlvLxIG2nPF_W-6AshpU2--9",
       },
       {
-        name: "Product 3",
-        price: 20,
+        name: "Chicken Strips",
+        price: 80,
         productImage:
-          "https://drive.google.com/uc?id=1ckWntpoawUpqMKU0vStswz4k3SlOEQH2",
+          "https://drive.google.com/uc?id=1ToU9HT0G5FQtweZnF2eqDWidgb33Elcr",
+      },
+      {
+        name: "Spicy Chicken",
+        price: 80,
+        productImage:
+          "https://drive.google.com/uc?id=1iIXE4cifNPsiTA1G8CqWjz71c3JTvc3R",
       },
     ],
     startDate: 18,
