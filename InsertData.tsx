@@ -152,53 +152,65 @@ export const InsertShopDetails = [
     ratingsArray: [],
   },
   {
-    name: "Cold Beverages by Sumit",
-    category: "Beverages",
-    slug: "cold-beverages",
+    name: "Chocolate Strawberry by Vedant",
+    category: "Chocolate",
+    slug: "chocolate-strawberry",
     imageURL:
-      "https://drive.google.com/uc?id=1bUieKLO86OLZTEOjNiZg4q2ID-n4gKgn",
+      "https://drive.google.com/uc?id=1b6nORNPW_e97x8fvM26_wJ8-k7Un_tMp",
     rating: 0,
     products: [
       {
-        name: "Product 2",
-        price: 44,
+        name: "Chocolate Strawberry",
+        price: 120,
         productImage:
-          "https://drive.google.com/uc?id=1ckWntpoawUpqMKU0vStswz4k3SlOEQH2",
-      },
-      {
-        name: "Product 3",
-        price: 20,
-        productImage:
-          "https://drive.google.com/uc?id=1ckWntpoawUpqMKU0vStswz4k3SlOEQH2",
+          "https://drive.google.com/uc?id=1KymsCt1gDCQSBxbVrEVNeAg1GDL1vA1s",
       },
     ],
-    startDate: 14,
+    startDate: 17,
     endDate: 20,
     ratedUsers: [],
     ratingsArray: [],
   },
   {
-    name: "Beverages by Vyom",
-    category: "Beverages",
-    slug: "beverages",
+    name: "Kankru Crunchies by Krutika",
+    category: "Food & Drinks",
+    slug: "kankru-crunchies",
     imageURL:
-      "https://drive.google.com/uc?id=1bUieKLO86OLZTEOjNiZg4q2ID-n4gKgn",
+      "https://drive.google.com/uc?id=1-iLV8-bY_lekA6m0u7TiBanD5YJXm2Wr",
     rating: 0,
     products: [
       {
-        name: "Product 2",
-        price: 44,
+        name: "Biryani",
+        price: 80,
         productImage:
-          "https://drive.google.com/uc?id=1ckWntpoawUpqMKU0vStswz4k3SlOEQH2",
+          "https://drive.google.com/uc?id=1Q7pqHKPL5mfXxXxqKH8KsvHz3UqIeIbM",
       },
       {
-        name: "Product 3",
-        price: 20,
+        name: "Pav Bhaji",
+        price: 80,
         productImage:
-          "https://drive.google.com/uc?id=1ckWntpoawUpqMKU0vStswz4k3SlOEQH2",
+          "https://drive.google.com/uc?id=1loIx_Ypn3xOTY-q7xCQGvi_mLKFugwHZ",
+      },
+      {
+        name: "Kokam Fizz",
+        price: 40,
+        productImage:
+          "https://drive.google.com/uc?id=1uCAN4KygY--W59K9vOnyepU3_VcpTnyf",
+      },
+      {
+        name: "Carrot Sandwich",
+        price: 50,
+        productImage:
+          "https://drive.google.com/uc?id=1rI4Nf6L8ILfBwm_k3iyRkrQoRHhAWezm",
+      },
+      {
+        name: "Mayo Corn Sandwich",
+        price: 50,
+        productImage:
+          "https://drive.google.com/uc?id=1jx9eLK7k4FZxj-USRpXyKHoNBYEXM4fm",
       },
     ],
-    startDate: 14,
+    startDate: 16,
     endDate: 20,
     ratedUsers: [],
     ratingsArray: [],
@@ -266,7 +278,7 @@ export const InsertShopDetails = [
     ratingsArray: [],
   },
   {
-    name: "Spicy Splash Zone by Sneha",
+    name: "Snack Attach By Chinmay",
     category: "Snacks",
     slug: "snack-attack",
     imageURL:
@@ -296,24 +308,42 @@ export const InsertShopDetails = [
     category: "Food",
     slug: "mocktails",
     imageURL:
-      "https://drive.google.com/uc?id=1bUieKLO86OLZTEOjNiZg4q2ID-n4gKgn",
+      "https://drive.google.com/uc?id=1HEIjPaRfaS7DMemu3terbrdZJ0nScV20",
     rating: 0,
     products: [
       {
-        name: "Product 2",
-        price: 44,
+        name: "Mojito",
+        price: 50,
         productImage:
-          "https://drive.google.com/uc?id=1ckWntpoawUpqMKU0vStswz4k3SlOEQH2",
+          "https://drive.google.com/uc?id=1MZTGKnbYvT0osQE3l9rbg6D96NNEDnCK",
       },
       {
-        name: "Product 3",
-        price: 20,
+        name: "Masala Mojito",
+        price: 60,
         productImage:
-          "https://drive.google.com/uc?id=1ckWntpoawUpqMKU0vStswz4k3SlOEQH2",
+          "https://drive.google.com/uc?id=1LxiZ_U22FNW6w0TmQ8RYITQLt6teCawB",
+      },
+      {
+        name: "Kokam Masala",
+        price: 50,
+        productImage:
+          "https://drive.google.com/uc?id=1n6YNeAnHJOkOcy_QTm75SFhLjQ3n2uPT",
+      },
+      {
+        name: "Blue Lagoon",
+        price: 50,
+        productImage:
+          "https://drive.google.com/uc?id=1fJUL4kTIYuOKKC2S-dZA5d7yho1okrrr",
+      },
+      {
+        name: "Green Apple Lemonade",
+        price: 50,
+        productImage:
+          "https://drive.google.com/uc?id=1JFfJaveq5MkNCyEHNYpK7cJhRriQdGL5",
       },
     ],
-    startDate: 14,
-    endDate: 14,
+    startDate: 18,
+    endDate: 20,
     ratedUsers: [],
     ratingsArray: [],
   },
@@ -454,6 +484,44 @@ export const InsertShopDetails = [
     ],
     startDate: 18,
     endDate: 20,
+    ratedUsers: [],
+    ratingsArray: [],
+  },
+  {
+    name: "Wrap it up by Shreya",
+    category: "Sandwich",
+    slug: "wrap-it-up",
+    imageURL:
+      "https://drive.google.com/uc?id=1HThr4teZfy4c-lH-6LtvP-6ipF-wsoxf",
+    rating: 0,
+    products: [
+      {
+        name: "Veg Sandwich",
+        price: 35,
+        productImage:
+          "https://drive.google.com/uc?id=1I5v0b6F-8GW67iOaC60VoJWdq-G4zvfq",
+      },
+      {
+        name: "Toast Sandwich",
+        price: 40,
+        productImage:
+          "https://drive.google.com/uc?id=1lXR3fyAtk5dT8A1R7H2o4Z4_9zZobkB6",
+      },
+      {
+        name: "Mayo Sandwich",
+        price: 50,
+        productImage:
+          "https://drive.google.com/uc?id=17Be39Y4F8CUH_gdJBD-ZD1CNtqdVsd80",
+      },
+      {
+        name: "Cheese Chilli toast Sandwich",
+        price: 65,
+        productImage:
+          "https://drive.google.com/uc?id=1cCWkMWfmi_lGyJafCe-qZTFXO4GcXe2M",
+      },
+    ],
+    startDate: 17,
+    endDate: 17,
     ratedUsers: [],
     ratingsArray: [],
   },

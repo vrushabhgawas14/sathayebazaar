@@ -22,7 +22,9 @@ export default function ProductsCard({ title, image, price }: CardDetails) {
             className="h-64 sm:w-72 md:w-80 w-60"
           />
         </div>
-        <div className="text-center py-2 text-xl font-bold">{title}</div>
+        <div className="text-center py-2 text-xl font-bold w-60 md:w-80 sm:w-72">
+          {title}
+        </div>
         <div className="text-center text-lg">Price: {price} ₹</div>
       </div>
     </>

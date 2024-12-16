@@ -1,39 +1,39 @@
 export const InsertShopDetails = [
   {
-    name: "Live Ice Cream by Harsh",
-    category: "Ice Cream",
-    slug: "live-ice-cream",
+    name: "Wrap it up by Shreya",
+    category: "Sandwich",
+    slug: "",
     imageURL:
-      "https://drive.google.com/uc?id=1IJ7WWJa1R1HsPgHWT1Siady7rT81mWBd",
+      "https://drive.google.com/uc?id=1HThr4teZfy4c-lH-6LtvP-6ipF-wsoxf",
     rating: 0,
     products: [
       {
-        name: "Oreo",
-        price: 49,
+        name: "Veg Sandwich",
+        price: 35,
         productImage:
-          "https://drive.google.com/uc?id=1q8RsW3w7_KaeZnYh01rybzKtyxdgl4cm",
+          "https://drive.google.com/uc?id=1I5v0b6F-8GW67iOaC60VoJWdq-G4zvfq",
       },
       {
-        name: "Roll",
-        price: 55,
+        name: "Toast Sandwich",
+        price: 40,
         productImage:
-          "https://drive.google.com/uc?id=1rtLV0dRsCswin2KfdkmLUZYOLJvoqCJ8",
+          "https://drive.google.com/uc?id=1lXR3fyAtk5dT8A1R7H2o4Z4_9zZobkB6",
       },
       {
-        name: "Rabadi Gulab Jamun",
-        price: 79,
+        name: "Mayo Sandwich",
+        price: 50,
         productImage:
-          "https://drive.google.com/uc?id=1kgZHqCD_zPUFeix6IYcC-4DuIOk4Q7w1",
+          "https://drive.google.com/uc?id=17Be39Y4F8CUH_gdJBD-ZD1CNtqdVsd80",
       },
       {
-        name: "Rocky Road",
-        price: 89,
+        name: "Cheese Chilli toast Sandwich",
+        price: 65,
         productImage:
-          "https://drive.google.com/uc?id=12d8HO6b5j4rWSMOb4Z4SQv7-LiLOoPoR",
+          "https://drive.google.com/uc?id=1cCWkMWfmi_lGyJafCe-qZTFXO4GcXe2M",
       },
     ],
-    startDate: 18,
-    endDate: 20,
+    startDate: 17,
+    endDate: 17,
     ratedUsers: [],
     ratingsArray: [],
   },
