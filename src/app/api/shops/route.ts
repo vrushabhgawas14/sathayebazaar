@@ -21,7 +21,7 @@ export const GET = async (request: NextRequest) => {
     } else {
       shops = await Shops.find({
         endDate: { $gte: todaysDate },
-      }).sort({ name: 1 });
+      }).sort({ bayesianScore: -1 });
       // shops = shops.sort(() => Math.random() - 0.5);
     }
 
