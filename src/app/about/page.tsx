@@ -1,7 +1,24 @@
+"use client";
 import Line from "@/components/Line";
+import { ImagesLink } from "@/constants/AboutDetails";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function About() {
+  const goRight = () => {
+    const slide: HTMLElement | null = document.getElementById("slider");
+    if (slide) {
+      slide.scrollLeft += 250;
+    }
+  };
+
+  const goLeft = () => {
+    const slide: HTMLElement | null = document.getElementById("slider");
+    if (slide) {
+      slide.scrollLeft -= 250;
+    }
+  };
+
   return (
     <>
       <main>
@@ -19,6 +36,41 @@ export default function About() {
             clothing, handcrafted jewelry, refreshing beverages, and more. This
             event serves as a launchpad for students to hone their
             entrepreneurial spirit, creativity, and teamwork.
+          </div>
+          <div className="flex px-4 items-center justify-center w-[80%] sm:w-[100%]">
+            <button onClick={goLeft}>
+              <Image
+                src={"/assets/svgs/backButton.svg"}
+                width={0}
+                height={0}
+                alt="BackButton"
+                className="min-w-8 sm:min-w-5"
+              />
+            </button>
+            <div
+              id="slider"
+              className="overflow-x-scroll scroll-smooth flex py-4 gap-x-4 border-gray-600 border-2 border-x-0 mx-10 sm:mx-4"
+            >
+              {ImagesLink.map((item, index) => (
+                <Image
+                  key={index}
+                  src={item.image}
+                  width={300}
+                  height={300}
+                  alt="Athawda Bazaar Image"
+                  className="h-96 w-72 sm:w-64 border-2 border-background-start rounded-lg"
+                />
+              ))}
+            </div>
+            <button onClick={goRight}>
+              <Image
+                src={"/assets/svgs/nextButton.svg"}
+                width={0}
+                height={0}
+                alt="NextButton"
+                className="min-w-8 sm:min-w-5"
+              />
+            </button>
           </div>
         </section>
         <Line />

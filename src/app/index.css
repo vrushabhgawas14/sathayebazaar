@@ -59,3 +59,15 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+#slider::-webkit-scrollbar {
+  width: 6rem;
+}
+
+#slider::-webkit-scrollbar-thumb {
+  @apply h-3 bg-background-start;
+}
+
+#slider::-webkit-scrollbar-track {
+  @apply hidden;
+}
