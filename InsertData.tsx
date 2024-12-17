@@ -469,30 +469,36 @@ export const InsertShopDetails = [
   },
   {
     name: "Crispy Tales by Vinayak",
-    category: "Bags",
+    category: "Food",
     slug: "mint-and-mix",
     imageURL:
-      "https://drive.google.com/uc?id=1IJ7WWJa1R1HsPgHWT1Siady7rT81mWBd",
+      "https://drive.google.com/uc?id=1ojWV5YKS2ruYAMvZ_q-qwenPmSitifJm",
     rating: 0,
     products: [
       {
-        name: "Manchurian Bhaji",
-        price: 20,
+        name: "Chicken Biryani",
+        price: 80,
         productImage:
-          "https://drive.google.com/uc?id=1-lN9CiGr-BRBIoKxrFivnSwKIdPNWdpr",
+          "https://drive.google.com/uc?id=1GRKxpcQxg-mubr00GYBpSf1lY9ogjjlv",
       },
+      // {
+      //   name: "Manchurian Bhaji",
+      //   price: 20,
+      //   productImage:
+      //     "https://drive.google.com/uc?id=1-lN9CiGr-BRBIoKxrFivnSwKIdPNWdpr",
+      // },
       {
         name: "Chinese Bhel",
         price: 15,
         productImage:
           "https://drive.google.com/uc?id=1ncBaSGa_S9H6bNF52JCFcu3nEMhTEd68",
       },
-      {
-        name: "Manchurian Bhel",
-        price: 30,
-        productImage:
-          "https://drive.google.com/uc?id=1RTqBhpPN_MFJXnZY9kTRMWT8CJQ8bxOg",
-      },
+      // {
+      //   name: "Manchurian Bhel",
+      //   price: 30,
+      //   productImage:
+      //     "https://drive.google.com/uc?id=1RTqBhpPN_MFJXnZY9kTRMWT8CJQ8bxOg",
+      // },
     ],
     startDate: 18,
     endDate: 20,

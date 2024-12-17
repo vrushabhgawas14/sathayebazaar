@@ -53,7 +53,7 @@ export default async function UserProfile({ params }: any) {
   // await Shops.updateMany(
   //   {}, // Match all documents
   //   {
-  //     $set: { rating: 0 }, // Add bayesianScore with default value 0
+  //     $set: { sortingType: 0 }, // Add bayesianScore with default value 0
   //   }
   // );
 
