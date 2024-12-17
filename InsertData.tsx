@@ -356,6 +356,18 @@ export const InsertShopDetails = [
     rating: 0,
     products: [
       {
+        name: "Shooting Star",
+        price: 70,
+        productImage:
+          "https://drive.google.com/uc?id=1EyrT7s3Sm1qp0rlKFQbkMFBeIZEURJOF",
+      },
+      {
+        name: "Bow phone charms",
+        price: 70,
+        productImage:
+          "https://drive.google.com/uc?id=19fYjD3RWLhoXYLGvrg9uRGu0Qkod0sNy",
+      },
+      {
         name: "Blooming Blossom",
         price: 70,
         productImage:
@@ -590,10 +602,40 @@ export const InsertShopDetails = [
     rating: 0,
     products: [
       {
-        name: "Twister Potato",
-        price: 40,
+        name: "Classic Twister",
+        price: 50,
         productImage:
-          "https://drive.google.com/uc?id=1u1HrxlhofkIXYREKUl9oLY8LMQHac2an",
+          "https://drive.google.com/uc?id=1FW_hIS1RZqTGSW55fTloQze5LH3eKuM5",
+      },
+      {
+        name: "Mayo Twister",
+        price: 55,
+        productImage:
+          "https://drive.google.com/uc?id=1Ir2JOPO7mNWMrBUFV2e5XIZXj6md1eZy",
+      },
+      {
+        name: "BBQ Twister",
+        price: 65,
+        productImage:
+          "https://drive.google.com/uc?id=1CRTeO-mGyOsncyPwcCdvuhH8K8knY1gw",
+      },
+      {
+        name: "Cheese Twister",
+        price: 65,
+        productImage:
+          "https://drive.google.com/uc?id=1R8APD6ij433IdDhLf7xYt03YGFxGyyjd",
+      },
+      {
+        name: "Classic Fries",
+        price: 30,
+        productImage:
+          "https://drive.google.com/uc?id=1pr4hI2e-j9G7cDhHM3sYLQ5HBXj9CwXU",
+      },
+      {
+        name: "Periperi Fries",
+        price: 50,
+        productImage:
+          "https://drive.google.com/uc?id=1eXv2bqXFcmbWLF8QsVRvg1cSkkz3R-HD",
       },
     ],
     startDate: 17,
@@ -614,6 +656,56 @@ export const InsertShopDetails = [
         price: 80,
         productImage:
           "https://drive.google.com/uc?id=1yen6ks7o94wE9NVlbbqLWAy7tLJRnexW",
+      },
+    ],
+    startDate: 17,
+    endDate: 18,
+    ratedUsers: [],
+    ratingsArray: [],
+  },
+  {
+    name: "Artistry Homebakes",
+    category: "Food",
+    slug: "artistry-homebakes",
+    imageURL:
+      "https://drive.google.com/uc?id=1WABfQKHczQrcSvMnxN1GeoyPYNX77LUL",
+    rating: 0,
+    products: [
+      {
+        name: "Veg Burger",
+        price: 50,
+        productImage:
+          "https://drive.google.com/uc?id=1lw_BZok5faCxjFWG2zm_nGlNgBFJSVMa",
+      },
+      {
+        name: "Veg Double Tikki Burger",
+        price: 80,
+        productImage:
+          "https://drive.google.com/uc?id=1cX39ZxQYV4Fq9uYdFp-OBJ5O4X-dnHup",
+      },
+      {
+        name: "Veg Cheese Burger",
+        price: 70,
+        productImage:
+          "https://drive.google.com/uc?id=1QYHgSt4y4pu_ktG5w6USkz3Yf1XL065W",
+      },
+      {
+        name: "Normal Fries",
+        price: 40,
+        productImage:
+          "https://drive.google.com/uc?id=1sroptU1Hx2YxTQ40YicC-SLoz17Orqx3",
+      },
+      {
+        name: "Cupcakes",
+        price: 30,
+        productImage:
+          "https://drive.google.com/uc?id=1O-PlplIZiA6-48adbs5NjK46JP9EOVs0",
+      },
+      {
+        name: "Chocolate Pastry",
+        price: 50,
+        productImage:
+          "https://drive.google.com/uc?id=1WKN7AFtF1anP1K66w4AQc3VrllTbTKGC",
       },
     ],
     startDate: 17,
