@@ -525,4 +525,100 @@ export const InsertShopDetails = [
     ratedUsers: [],
     ratingsArray: [],
   },
+  {
+    name: "Flip & Dip by Muskaan",
+    category: "Pancakes",
+    slug: "flip-and-dip",
+    imageURL:
+      "https://drive.google.com/uc?id=1cwYYxHPduKzmiuNIGOG1uBCSeGwkY22f",
+    rating: 0,
+    products: [
+      {
+        name: "ButterScotch Pancakes",
+        price: 50,
+        productImage:
+          "https://drive.google.com/uc?id=1mkIBPyxDt121590Avci3pJIBXsUq3bgU",
+      },
+      {
+        name: "Chocolate Pancakes",
+        price: 60,
+        productImage:
+          "https://drive.google.com/uc?id=1XimNwX_4FlSYqC51FhpRz3ZB1zGSlIie",
+      },
+      {
+        name: "Oreo in Butterscotch",
+        price: 60,
+        productImage:
+          "https://drive.google.com/uc?id=18n1UNbZQRyLKbDgKMsiI7nJ-tOPsgwWZ",
+      },
+      {
+        name: "Snowy Chocolate",
+        price: 15,
+        productImage:
+          "https://drive.google.com/uc?id=1PanYKCY3AI71isaph_ys2aA-YQ58ot_r",
+      },
+      {
+        name: "Cheeky Choco Chips",
+        price: 15,
+        productImage:
+          "https://drive.google.com/uc?id=1XhzdOjfyYsa6d02Mh-ORRa0sp9Mr9FQd",
+      },
+      {
+        name: "Rainbow Sprinkles",
+        price: 10,
+        productImage:
+          "https://drive.google.com/uc?id=1rcRyx6dr2LQHr0BDdNnHvXj9ZtP5nhx-",
+      },
+      {
+        name: "Erratic Oreo",
+        price: 10,
+        productImage:
+          "https://drive.google.com/uc?id=1szrTB6SGCpdRGllIjiV6KCsWoH75iF5W",
+      },
+    ],
+    startDate: 17,
+    endDate: 18,
+    ratedUsers: [],
+    ratingsArray: [],
+  },
+  {
+    name: "Carnival Cravings by Yukta",
+    category: "Fries",
+    slug: "carnival-cravings",
+    imageURL:
+      "https://drive.google.com/uc?id=1UamdOVFTUuyUWRiITc1XUz4ci7BshOPZ",
+    rating: 0,
+    products: [
+      {
+        name: "Twister Potato",
+        price: 40,
+        productImage:
+          "https://drive.google.com/uc?id=1u1HrxlhofkIXYREKUl9oLY8LMQHac2an",
+      },
+    ],
+    startDate: 17,
+    endDate: 18,
+    ratedUsers: [],
+    ratingsArray: [],
+  },
+  {
+    name: "Anaika Jewels",
+    category: "jewels",
+    slug: "anaika-jewels",
+    imageURL:
+      "https://drive.google.com/uc?id=1epbjkfMWT8wES0NrIUp-a6XoPX0zKoUc",
+    rating: 0,
+    products: [
+      {
+        name: "Jhumkas",
+        price: 80,
+        productImage:
+          "https://drive.google.com/uc?id=1yen6ks7o94wE9NVlbbqLWAy7tLJRnexW",
+      },
+    ],
+    startDate: 17,
+    endDate: 18,
+    ratedUsers: [],
+    ratingsArray: [],
+  },
 ];
