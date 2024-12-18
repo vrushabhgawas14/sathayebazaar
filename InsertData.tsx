@@ -120,7 +120,7 @@ export const InsertShopDetails = [
     ratingsArray: [],
   },
   {
-    name: "Chills by Kshitij",
+    name: "Snackraronies by Kshitij",
     category: "Cold Drinks and Food",
     slug: "chills",
     imageURL:
@@ -658,10 +658,52 @@ export const InsertShopDetails = [
     rating: 0,
     products: [
       {
-        name: "Jhumkas",
+        name: "Chains",
         price: 80,
         productImage:
+          "https://drive.google.com/uc?id=1r1ZDMm6pCx1RAt3R-GfLI5DvcJCzUbZp",
+      },
+      {
+        name: "Anklet",
+        price: 80,
+        productImage:
+          "https://drive.google.com/uc?id=1Lm_ARiXfcfxSpX0NNqyrUcQD9CrefjM-",
+      },
+      {
+        name: "Jhumkas",
+        price: 50,
+        productImage:
           "https://drive.google.com/uc?id=1yen6ks7o94wE9NVlbbqLWAy7tLJRnexW",
+      },
+      {
+        name: "Studs",
+        price: 40,
+        productImage:
+          "https://drive.google.com/uc?id=1kLUdsUcVqG6tI2LTl3IBhoYhtK0qJqBs",
+      },
+      {
+        name: "Stainless Steel Chains",
+        price: 250,
+        productImage:
+          "https://drive.google.com/uc?id=1IbYNglX4gXuAav6aFJ9745Ezhcyc3vDV",
+      },
+      {
+        name: "Flower Clip",
+        price: 20,
+        productImage:
+          "https://drive.google.com/uc?id=1pQ7nTSMjFnbioVkoz0ceIQSmLg4j-WtO",
+      },
+      {
+        name: "Evil Eye",
+        price: 30,
+        productImage:
+          "https://drive.google.com/uc?id=1zl1GEaWQmzNipybJoiFOwseLHtClUk2p",
+      },
+      {
+        name: "Resin Pendant with Chain",
+        price: 150,
+        productImage:
+          "https://drive.google.com/uc?id=1eBw4oSR9Yff5BJvB50DOws9kn8pI6smP",
       },
     ],
     startDate: 17,
@@ -713,9 +755,82 @@ export const InsertShopDetails = [
         productImage:
           "https://drive.google.com/uc?id=1WKN7AFtF1anP1K66w4AQc3VrllTbTKGC",
       },
+      {
+        name: "Bowl Cake",
+        price: 150,
+        productImage:
+          "https://drive.google.com/uc?id=1SkCB1SmOlFkWWRGP1jpN0vJ5LKFFfpJJ",
+      },
+      {
+        name: "Glass Cake",
+        price: 70,
+        productImage:
+          "https://drive.google.com/uc?id=1s83qdb_wbIjJWasArcTIGqa6w5qsZSOV",
+      },
     ],
     startDate: 17,
     endDate: 18,
+    ratedUsers: [],
+    ratingsArray: [],
+  },
+  {
+    name: "S&K Food Adda by kajal",
+    category: "Food",
+    slug: "s-and-k-food-adda",
+    imageURL: "https://drive.google.com/uc?id=",
+    rating: 0,
+    products: [
+      {
+        name: "Classic Ramen",
+        price: 60,
+        productImage:
+          "https://drive.google.com/uc?id=1jrKi8espsxiXSYddT8tLQygHrdSxUTlY",
+      },
+      {
+        name: "Cheese Ramen",
+        price: 70,
+        productImage:
+          "https://drive.google.com/uc?id=1Xc-XuoMkE8MRS68WIILnQycJuk22e3Un",
+      },
+      {
+        name: "Classic Salted Fries",
+        price: 50,
+        productImage:
+          "https://drive.google.com/uc?id=1xzGsiwqFrcF9o3-l0UTJczzl5JrlcDEb",
+      },
+      {
+        name: "Peri Peri",
+        price: 65,
+        productImage:
+          "https://drive.google.com/uc?id=19lvq724WanjUxlvODNJJUmL1bAWahTAT",
+      },
+      {
+        name: "Classic Wafor Pav",
+        price: 25,
+        productImage:
+          "https://drive.google.com/uc?id=1fegdiKNcD7P6Tkk9Mao3XXHBWUPFg1th",
+      },
+      {
+        name: "Chocolate Pancakes",
+        price: 30,
+        productImage:
+          "https://drive.google.com/uc?id=1wLMD-N0x7iJPgxez4LhrJpMFS4gFBvKJ",
+      },
+      {
+        name: "Hot Coffee",
+        price: 20,
+        productImage:
+          "https://drive.google.com/uc?id=1FgYJGFCgpb0we1RtPuBWJVRFLICj16xA",
+      },
+      {
+        name: "Chocolate Coffee",
+        price: 70,
+        productImage:
+          "https://drive.google.com/uc?id=1yzEpoXsivphYJJdV8kDHt_-hZ4f6YYAq",
+      },
+    ],
+    startDate: 18,
+    endDate: 20,
     ratedUsers: [],
     ratingsArray: [],
   },

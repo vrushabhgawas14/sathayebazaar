@@ -1,28 +1,36 @@
 export const InsertShopDetails = [
   {
-    name: "Pinteresty",
-    category: "Accessories",
+    name: "Anaika Jewels",
+    category: "jewels",
     slug: "",
     imageURL:
-      "https://drive.google.com/uc?id=1ojWV5YKS2ruYAMvZ_q-qwenPmSitifJm",
+      "https://drive.google.com/uc?id=1epbjkfMWT8wES0NrIUp-a6XoPX0zKoUc",
     rating: 0,
     products: [
       {
-        name: "Chicken Biryani",
+        name: "Chains",
         price: 80,
         productImage:
-          "https://drive.google.com/uc?id=1GRKxpcQxg-mubr00GYBpSf1lY9ogjjlv",
+          "https://drive.google.com/uc?id=1r1ZDMm6pCx1RAt3R-GfLI5DvcJCzUbZp",
       },
       {
-        name: "Chinese Bhel",
-        price: 15,
+        name: "Anklet",
+        price: 80,
         productImage:
-          "https://drive.google.com/uc?id=1ncBaSGa_S9H6bNF52JCFcu3nEMhTEd68",
+          "https://drive.google.com/uc?id=1Lm_ARiXfcfxSpX0NNqyrUcQD9CrefjM-",
+      },
+      {
+        name: "Jhumkas",
+        price: 50,
+        productImage:
+          "https://drive.google.com/uc?id=1yen6ks7o94wE9NVlbbqLWAy7tLJRnexW",
       },
     ],
-    startDate: 14,
-    endDate: 16,
+    startDate: 17,
+    endDate: 18,
     ratedUsers: [],
     ratingsArray: [],
   },
 ];
+
+// This is for Uploading and Updating Shops Data
