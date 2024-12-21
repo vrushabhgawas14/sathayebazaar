@@ -42,4 +42,5 @@ next-env.d.ts
 
 # Personal Use
 UpdatingData.md
-# InsertData.tsx
+Data.tsx
+export.csv

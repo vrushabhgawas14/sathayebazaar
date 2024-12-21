@@ -9,7 +9,7 @@ export default function Home() {
   // const [PastShopsDetails, setPastShopsDetails] = useState([]);
 
   const [errorCurrPage, setErrorCurrPage] = useState("");
- // const [errorPastPage, setErrorPastPage] = useState("");
+  // const [errorPastPage, setErrorPastPage] = useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(true);
 
@@ -25,20 +25,20 @@ export default function Home() {
       setShopsDetails(currData);
 
       // Past Shops
-    //  const pastResonse = await fetch("api/pastShops");
-    //  const pastData = await pastResonse.json();
+      //  const pastResonse = await fetch("api/pastShops");
+      //  const pastData = await pastResonse.json();
 
-  //    if (pastResonse.status === 500) {
-        // Failed to Fetch Past Shops
- //       await setErrorPastPage(pastData.message);
-//      }
-  //    setPastShopsDetails(pastData);
+      //    if (pastResonse.status === 500) {
+      // Failed to Fetch Past Shops
+      //       await setErrorPastPage(pastData.message);
+      //      }
+      //    setPastShopsDetails(pastData);
 
       // eslint-disable-next-line
     } catch (err: any) {
       // Something might went wrong with fetching json or else.
       setErrorCurrPage("Error from homepage:= " + err.message);
- //     setErrorPastPage("Past Error from homepage:= " + err.message);
+      //     setErrorPastPage("Past Error from homepage:= " + err.message);
     }
   };
 
@@ -125,7 +125,7 @@ export default function Home() {
         <Line />
 
         {/* Past Shops */}
-        { /*
+        {/*
         {PastShopsDetails.length >= 1 && (
           <>
             <section className="flex flex-col items-center space-y-8 w-full py-24">
