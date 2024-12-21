@@ -10,18 +10,20 @@ export const GET = async (request: NextRequest) => {
     const isTopShops = url.searchParams.get("isTopRated");
 
     let shops;
-    const today = new Date();
-    const todaysDate = today.getDate();
+    // const today = new Date();
+   // const todaysDate = today.getDate();
 
     if (isTopShops === "true") {
       // shops = await Shops.find().sort({ rating: -1 });
-      shops = await Shops.find({
-        endDate: { $gte: todaysDate },
-      }).sort({ bayesianScore: -1 });
+     // shops = await Shops.find({
+       // endDate: { $gte: todaysDate },
+     // }).sort({ bayesianScore: -1 });
+      shops = await Shops.find({}).sort({ bayesianScore: -1 });
     } else {
-      shops = await Shops.find({
-        endDate: { $gte: todaysDate },
-      }).sort({ sortingType: 1 });
+     // shops = await Shops.find({
+       // endDate: { $gte: todaysDate },
+     // }).sort({ sortingType: 1 });
+      shops = await Shops.find({}).sort({ sortingType: 1 });
       // shops = shops.sort(() => Math.random() - 0.5);
     }
 
